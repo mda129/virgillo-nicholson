@@ -3353,3 +3353,85 @@ label {
   font-weight: 700;
 }
 /*# sourceMappingURL=style.css.map */
+/* =========================================
+   VIRGILLO & NICHOLSON CUSTOM FIXES
+   ========================================= */
+
+/* 1. LOGO SIZE FIXES (Web & Mobile) */
+.logo img {
+  max-height: 140px !important; /* Made bigger for Web */
+  width: auto;
+  padding: 5px 0;
+}
+
+/* 2. FOOTER LOGO VISIBILITY (The "Glow" Fix) */
+/* Adds a white glow behind the logo so text is readable on dark backgrounds */
+.footer-logo {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+}
+
+/* 3. MOBILE HEADER LAYOUT (Side-by-Side) */
+@media (max-width: 991px) {
+  /* Force Logo and Call Button to sit side-by-side */
+  .header-one .logo-area .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  /* Logo Wrapper (Left Side) */
+  .header-one .logo {
+      flex: 0 0 60%; /* Logo takes 60% width */
+      max-width: 60%;
+      text-align: left !important;
+      margin-bottom: 0 !important;
+  }
+  
+  /* Logo Image Mobile Size */
+  .logo img {
+      max-height: 80px !important;
+      margin: 0;
+  }
+
+  /* Call Button Wrapper (Right Side) */
+  .header-one .header-right {
+      flex: 0 0 40%; /* Button takes 40% width */
+      max-width: 40%;
+      text-align: right !important;
+      padding-right: 15px;
+  }
+
+  /* Ensure Call Button is visible */
+  .top-info-box {
+      display: block !important;
+      margin: 0;
+      padding: 0;
+  }
+  .top-info-box li { display: none; } /* Hide email/phone text */
+  .top-info-box li.header-get-a-quote { 
+      display: block !important; 
+      margin: 0 !important; 
+  }
+  
+  /* Call Button Mobile Styling */
+  .call-btn {
+      font-size: 12px;
+      padding: 8px 12px;
+      white-space: nowrap;
+  }
+}
+
+/* 4. SLIDER BUTTON FIXES (Touch Issue) */
+/* This brings buttons to the "front" so swipes don't cancel clicks */
+.slider-content {
+  pointer-events: none; /* Let clicks pass through the text container */
+}
+.slider-content .btn, 
+.slider-content h2, 
+.slider-content h3, 
+.slider-content p {
+  pointer-events: auto; /* Re-enable clicks on buttons and text */
+  position: relative;
+  z-index: 50;
+}
