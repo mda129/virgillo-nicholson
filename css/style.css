@@ -3352,86 +3352,117 @@ label {
   margin-top: 30px;
   font-weight: 700;
 }
-/*# sourceMappingURL=style.css.map */
 /* =========================================
-   VIRGILLO & NICHOLSON CUSTOM FIXES
+   VIRGILLO & NICHOLSON FINAL FIXES (DEC 3)
    ========================================= */
 
-/* 1. LOGO SIZE FIXES (Web & Mobile) */
-.logo img {
-  max-height: 140px !important; /* Made bigger for Web */
-  width: auto;
-  padding: 5px 0;
+/* 1. LOGO SIZE - FORCED */
+/* Use specific selector to override template defaults */
+header.header-one .logo-area .logo img {
+  max-height: 120px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
 }
 
-/* 2. FOOTER LOGO VISIBILITY (The "Glow" Fix) */
-/* Adds a white glow behind the logo so text is readable on dark backgrounds */
-.footer-logo {
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+/* 2. CALL BUTTON RESTORATION */
+a.call-btn {
+  background-color: #ffb600 !important;
+  color: #fff !important;
+  padding: 10px 20px !important;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a.call-btn:hover {
+  background-color: #333 !important;
+  color: #ffb600 !important;
 }
 
-/* 3. MOBILE HEADER LAYOUT (Side-by-Side) */
+/* 3. MOBILE HEADER LAYOUT (FLEXBOX) */
 @media (max-width: 991px) {
-  /* Force Logo and Call Button to sit side-by-side */
+  /* Container for Logo + Button */
   .header-one .logo-area .row {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-wrap: nowrap !important;
   }
-  
-  /* Logo Wrapper (Left Side) */
+
+  /* Logo Wrapper */
   .header-one .logo {
-      flex: 0 0 60%; /* Logo takes 60% width */
-      max-width: 60%;
-      text-align: left !important;
+      flex: 0 0 auto !important;
+      max-width: 60% !important;
       margin-bottom: 0 !important;
+      text-align: left !important;
   }
   
-  /* Logo Image Mobile Size */
-  .logo img {
-      max-height: 80px !important;
-      margin: 0;
+  /* Logo Image Mobile */
+  header.header-one .logo-area .logo img {
+      max-height: 70px !important; /* Slightly smaller to fit side-by-side */
   }
 
-  /* Call Button Wrapper (Right Side) */
+  /* Header Right (Button Wrapper) */
   .header-one .header-right {
-      flex: 0 0 40%; /* Button takes 40% width */
-      max-width: 40%;
-      text-align: right !important;
-      padding-right: 15px;
+      flex: 0 0 auto !important;
+      width: auto !important;
+      padding-left: 10px;
   }
 
-  /* Ensure Call Button is visible */
+  /* Force the list item to show */
   .top-info-box {
       display: block !important;
-      margin: 0;
-      padding: 0;
-  }
-  .top-info-box li { display: none; } /* Hide email/phone text */
-  .top-info-box li.header-get-a-quote { 
-      display: block !important; 
-      margin: 0 !important; 
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
   }
   
-  /* Call Button Mobile Styling */
-  .call-btn {
-      font-size: 12px;
-      padding: 8px 12px;
+  /* Hide Email/Phone Text */
+  .top-info-box li { display: none !important; }
+  
+  /* Show ONLY the Call Button */
+  .top-info-box li.header-get-a-quote {
+      display: block !important;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+  
+  /* Button Mobile Size */
+  a.call-btn {
+      font-size: 13px !important;
+      padding: 8px 12px !important;
       white-space: nowrap;
   }
 }
 
-/* 4. SLIDER BUTTON FIXES (Touch Issue) */
-/* This brings buttons to the "front" so swipes don't cancel clicks */
+/* 4. SLIDER BUTTON & TOUCH FIXES */
 .slider-content {
-  pointer-events: none; /* Let clicks pass through the text container */
+  pointer-events: none; /* Allows clicks to pass through container */
+  z-index: 20 !important;
 }
-.slider-content .btn, 
-.slider-content h2, 
-.slider-content h3, 
+
+/* Re-enable pointer events for the buttons/text specifically */
+.slider-content .slide-title,
+.slider-content .slide-sub-title,
+.slider-content .slider-description,
 .slider-content p {
-  pointer-events: auto; /* Re-enable clicks on buttons and text */
+  pointer-events: auto;
+}
+
+/* Force buttons to be top-most and clickable */
+.slider-content .btn,
+.slider-content a.slider {
+  pointer-events: auto !important;
   position: relative;
-  z-index: 50;
+  z-index: 50 !important;
+  cursor: pointer;
+}
+
+/* Fix "Double Tap" issue by removing hover effects on touch devices */
+@media (hover: none) {
+  .btn:hover { background-color: inherit !important; color: inherit !important; }
 }

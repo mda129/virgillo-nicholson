@@ -308,16 +308,35 @@
   <script src="js/script.js"></script>
   </div>
   <script>
-    // Force Slider Refresh on Mobile Return
-    $(window).on('pageshow', function(e) {
-        if (e.originalEvent.persisted) {
-            $('.banner-carousel').slick('setPosition');
+    $(document).ready(function(){
+        // 1. Initialize Slick with specific mobile settings
+        function initSlider() {
+            if ($('.banner-carousel').hasClass('slick-initialized')) {
+                $('.banner-carousel').slick('unslick');
+            }
+            $('.banner-carousel').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: true,
+                dots: false,
+                fade: true, // FADE prevents the "stuck between slides" look
+                cssEase: 'linear',
+                touchThreshold: 100 // Improves touch sensitivity
+            });
         }
-    });
-    
-    // Ensure Buttons work on Touch
-    $('.banner-carousel').on('touchstart', function() {
-        // detailed touch logic handled by CSS pointer-events now
+  
+        // Run on load
+        initSlider();
+  
+        // 2. Force Refresh when hitting "Back" button on mobile
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                initSlider();
+            }
+        };
     });
   </script></body>
 </html>
