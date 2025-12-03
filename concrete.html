@@ -12,16 +12,41 @@
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .logo img { max-height: 110px !important; width: auto; }
+    /* 1. Make Logo Bigger on Web */
+    .logo img { max-height: 120px !important; width: auto; }
+
+    /* 2. Mobile Header Fixes */
     @media (max-width: 991px) {
         .header-one .logo-area { padding: 10px 0; }
-        .logo img { max-height: 80px !important; margin: 0 auto; }
-        .top-info-box { display: none !important; }
-        .header-get-a-quote { display: block !important; margin-top: 10px; text-align: center; }
+        /* Smaller logo for mobile so it fits */
+        .logo img { max-height: 90px !important; margin: 0 auto; }
+        
+        /* Hide the text info (Email/Phone text) on mobile to save space */
+        .top-info-box li { display: none; }
+        
+        /* BUT keep the CALL BUTTON visible */
+        .top-info-box li.header-get-a-quote { 
+            display: block !important; 
+            margin-top: 10px; 
+            text-align: center; 
+            padding-bottom: 10px; 
+        }
+        
+        /* Dark background for menu */
         .navbar-collapse { background: #333; padding: 10px; }
     }
-    .call-btn { background: #ffb600; color: #fff; padding: 10px 20px; font-weight: bold; border-radius: 5px; text-transform: uppercase; display: inline-block; }
+
+    /* 3. Call Button Style */
+    .call-btn { 
+        background: #ffb600; color: #fff; padding: 10px 20px; 
+        font-weight: bold; border-radius: 5px; text-transform: uppercase;
+        display: inline-block;
+    }
     .call-btn:hover { background: #333; color: #ffb600; }
+
+    /* 4. Fix Mobile Slider Buttons (Z-Index Issue) */
+    .slider-content { position: relative; z-index: 10; pointer-events: auto; }
+    .banner-carousel-item { z-index: 1; }
   </style>
 </head>
 <body>
