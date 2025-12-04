@@ -227,23 +227,26 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
 
 /* =======================================================
    VIRGILLO & NICHOLSON CUSTOM OVERRIDES 
-   Add to the bottom of css/style.css
+   (Updated Fix)
    ======================================================= */
 
 /* 1. BIGGER HEADER LOGO (Desktop) */
 header .logo img { 
-  max-height: 160px !important; /* Increased from 120px */
+  max-height: 160px !important; 
   width: auto !important; 
   padding: 5px 0;
   transition: 0.3s ease;
 }
 
-/* 2. FOOTER LOGO SHADOW */
-/* Adds a white glow behind the logo to make text distinct against dark overlay */
+/* 2. FOOTER LOGO FIX (White Badge) */
+/* This adds a semi-transparent white box behind the logo so dark text is readable */
 .footer-logo {
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)) !important; 
-  -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  padding: 15px !important;
+  border-radius: 8px !important;
   margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Adds depth */
+  display: inline-block;
 }
 
 /* 3. MOBILE HEADER CONSISTENCY (Applied to ALL pages) */
@@ -257,16 +260,16 @@ header .logo img {
       flex-wrap: nowrap !important;
   }
 
-  /* Logo Sizing for Mobile to prevent overflow */
+  /* Logo Sizing for Mobile */
   .header-one .logo { 
       flex: 0 1 auto !important; 
       max-width: 70%;
   }
   header .logo img { 
-      max-height: 80px !important; /* Slightly larger mobile logo */
+      max-height: 80px !important; 
   }
 
-  /* Hide the email/phone text, show only the button wrapper */
+  /* Hide text items, show button */
   .header-one .header-right { 
       flex: 0 0 auto !important; 
       width: auto !important;
@@ -275,8 +278,8 @@ header .logo img {
       display: block !important; 
       margin: 0 !important; 
   }
-  ul.top-info-box li { display: none !important; } /* Hide text items */
-  ul.top-info-box li.header-get-a-quote { display: block !important; } /* Show Button */
+  ul.top-info-box li { display: none !important; } 
+  ul.top-info-box li.header-get-a-quote { display: block !important; } 
   
   /* Mobile "Call Now" Button Styling */
   a.call-btn {
@@ -288,15 +291,16 @@ header .logo img {
   }
 }
 
-/* 4. SLIDER & BUTTON MOBILE TOUCH FIXES */
-/* Ensures buttons are clickable over slider images */
+/* 4. SLIDER RESTORATION FIX */
+/* Restores visibility and ensures text sits ON TOP of the image */
 .slider-content {
-  pointer-events: none; /* Allows scrolling/swiping through the text area */
-  z-index: 999 !important;
+  z-index: 9999 !important; /* Must be 9999 to beat the overlay */
+  opacity: 1 !important;    /* Force container to be visible */
+  visibility: visible !important;
+  pointer-events: none;     /* Allow swiping through the empty areas */
 }
-.slider-content .btn, 
-.slider-content a {
-  pointer-events: auto !important; /* Re-enables clicking on the button itself */
-  position: relative;
-  z-index: 1000;
+
+/* Allow clicking on buttons and text interactions */
+.slider-content * {
+  pointer-events: auto !important; 
 }
