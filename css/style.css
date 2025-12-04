@@ -1,212 +1,198 @@
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
+/* =========================================
+   CORE TEMPLATE (DO NOT EDIT)
+   ========================================= */
+   @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
 
- @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
-
- /* =========================================
-    1. CORE TEMPLATE STYLES
-    ========================================= */
- body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; }
- h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
- h1 { font-size: 36px; line-height: 48px; }
- h2 { font-size: 28px; line-height: 36px; text-transform: uppercase; letter-spacing: -1px; }
- h3 { font-size: 24px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -0.5px; }
- h4 { font-size: 18px; line-height: 28px; text-transform: uppercase; letter-spacing: -0.2px; }
- h5 { font-size: 14px; line-height: 24px; }
- a { color: inherit; transition: 0.2s ease; text-decoration: none; }
- a:hover { color: #000; text-decoration: none; }
- section, .section-padding { padding: 70px 0; position: relative; }
- .no-padding { padding: 0; }
- .gap-60 { clear: both; height: 60px; }
- .gap-40 { clear: both; height: 40px; }
- .gap-20 { clear: both; height: 20px; }
- .mrt-0 { margin-top: 0 !important; margin-bottom: 20px !important; }
- .bg-overlay { position: relative; }
- .bg-overlay .container { position: relative; z-index: 1; }
- .bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
- 
- /* Buttons */
- .btn-primary, .btn-dark { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; }
- .btn-primary { background: #ffb600; }
- .btn-dark { background: #23282d; }
- .btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
- 
- /* Top Bar */
- .top-bar { padding: 8px 0; background: #ebebeb; position: relative; }
- ul.top-info { list-style: none; margin: 0; padding: 0; }
- ul.top-info li { position: relative; display: inline-block; margin-left: 0; padding-right: 15px; }
- ul.top-info li i { font-size: 18px; position: relative; top: 2px; margin-right: 5px; }
- .top-social ul { list-style: none; padding: 0; margin: 0; margin-right: -12px; }
- .top-social ul li { display: inline-block; padding: 0; }
- .top-social ul li a { color: #2c2c2c; font-size: 14px; padding: 9px 12px; }
- 
- /* Header */
- .header-one, .header-one .site-navigation { background: #23282d; }
- .header-one .logo-area { padding: 30px 0; background: #fff; }
- .navbar { border-radius: 0; border: 0; margin-bottom: 0; padding: 0;}
- ul.navbar-nav > li > a { font-family: "Montserrat", sans-serif; color: #fff !important; font-weight: 700 !important; text-transform: uppercase; font-size: 14px; padding: 30px 0; }
- ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
- .dropdown-menu { border-top: 2px solid #ffb600; border-radius: 0; min-width: 200px; padding: 0; }
- .dropdown-menu li a { padding: 15px 20px; border-bottom: 1px solid #e5e5e5; color: #333; font-weight: 700; text-transform: uppercase; font-size: 12px; }
- .dropdown-menu li a:hover { color: #ffb600; background: none; }
- .navbar-toggler { background: #ffb600; padding: 6px; border-radius: 0; margin: 10px 0; }
- 
- /* Slider */
- .banner-carousel .banner-carousel-item { height: 700px; background-size: cover; background-position: 50% 50%; position: relative; }
- .slider-content { position: absolute; top: 50%; width: 100%; transform: translateY(-50%); }
- .slide-title { font-size: 52px; line-height: 60px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
- .slide-sub-title { font-size: 24px; color: #fff; margin-bottom: 30px; display: block; font-weight: 700; text-transform: uppercase; }
- .slider.btn { margin-right: 10px; }
- .slider.btn.border { border: 2px solid #ffb600; background: transparent; }
- .slider.btn.border:hover { background: #ffb600; color: #fff; }
- 
- /* Footer */
- .footer { background-color: #0d0d0d; color: #999; }
- .footer-main { padding: 80px 0 60px; }
- .footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
- .footer-social ul li a i { color: #999; font-size: 16px; padding: 10px 13px; }
- .copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
- 
- /* Services & Projects */
- .ts-service-box { margin-bottom: 30px; display: flex; }
- .ts-service-box-img { margin-right: 20px; width: 60px; }
- .ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
- .ts-service-box-info h3 a { color: #212121; }
- 
- /* =========================================
-    2. VIRGILLO & NICHOLSON FINAL FIXES
-    ========================================= */
- 
- /* LOGO FIXES (Web) */
- header .navbar-brand img, 
- header .logo img {
-     max-height: 120px !important;
-     width: auto !important;
-     padding: 5px 0;
-     display: block;
- }
- 
- /* FOOTER LOGO SHADOW (For visibility) */
- .footer-logo {
-     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
-     display: block;
-     margin-bottom: 20px;
- }
- 
- /* CALL BUTTON STYLE (Visible on all devices) */
- a.call-btn {
-     background-color: #ffb600 !important;
-     color: #fff !important;
-     padding: 12px 20px !important;
-     font-weight: 700 !important;
-     font-size: 14px !important;
-     border-radius: 5px;
-     text-transform: uppercase;
-     display: inline-block;
-     text-decoration: none;
-     line-height: 1;
-     border: none;
-     margin-top: 0; 
- }
- a.call-btn:hover {
-     background-color: #333 !important;
-     color: #ffb600 !important;
- }
- 
- /* SLIDER TEXT VISIBILITY (Critical Fix) */
- .slider-content {
-     z-index: 9999 !important;
-     opacity: 1 !important;
-     visibility: visible !important;
-     pointer-events: none; /* Let clicks pass through container */
- }
- /* Re-enable button clicks */
- .slider-content .btn,
- .slider-content h2, 
- .slider-content h3, 
- .slider-content p,
- .slider-content a {
-     pointer-events: auto !important;
-     position: relative;
-     z-index: 10000;
- }
- 
- /* MOBILE SPECIFIC LAYOUT */
- @media (max-width: 991px) {
-     
-     /* Force Header to be a Flex Row */
-     .header-one .logo-area .row {
-         display: flex !important;
-         flex-direction: row !important;
-         justify-content: space-between !important;
-         align-items: center !important;
-         width: 100%;
-         margin: 0;
-         padding: 0 15px;
-     }
- 
-     /* Left Side: Logo */
-     .header-one .logo {
-         flex: 0 0 auto !important;
-         width: auto !important;
-         margin-bottom: 0 !important;
-         padding: 0 !important;
-     }
-     /* Force mobile logo size */
-     .header-one .logo img {
-         max-height: 80px !important; 
-         width: auto !important;
-     }
- 
-     /* Right Side: Call Button Wrapper */
-     .header-one .header-right {
-         flex: 0 0 auto !important;
-         width: auto !important;
-         text-align: right !important;
-         padding: 0 !important;
-     }
- 
-     /* Hide Email/Phone Text Lists */
-     ul.top-info-box {
-         display: block !important;
-         margin: 0 !important;
-         padding: 0 !important;
-     }
-     ul.top-info-box li {
-         display: none !important;
-     }
-     
-     /* Show ONLY the Call Button Li */
-     ul.top-info-box li.header-get-a-quote {
-         display: block !important;
-         margin: 0 !important;
-         padding: 0 !important;
-         border: none !important;
-     }
- 
-     /* Fix Slider Height on Mobile */
-     .banner-carousel .banner-carousel-item {
-         height: 500px !important;
-     }
-     .slide-title {
-         font-size: 28px !important;
-         line-height: 36px !important;
-     }
-     .slide-sub-title {
-         font-size: 18px !important;
-     }
-     
-     /* Fix Menu Background */
-     .navbar-collapse {
-         background: #222;
-         position: absolute;
-         top: 100%;
-         left: 0;
-         width: 100%;
-         z-index: 99999;
-     }
- }
+   body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; margin: 0; padding: 0; }
+   h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
+   a { color: inherit; transition: 0.2s ease; text-decoration: none; }
+   a:hover { color: #000; text-decoration: none; }
+   section, .section-padding { padding: 70px 0; position: relative; }
+   .no-padding { padding: 0; }
+   .gap-60 { clear: both; height: 60px; }
+   .gap-40 { clear: both; height: 40px; }
+   .gap-20 { clear: both; height: 20px; }
+   .mrt-0 { margin-top: 0 !important; margin-bottom: 20px !important; }
+   .bg-overlay { position: relative; }
+   .bg-overlay .container { position: relative; z-index: 1; }
+   .bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
+   
+   /* Buttons */
+   .btn-primary, .btn-dark { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; display: inline-block;}
+   .btn-primary { background: #ffb600; }
+   .btn-dark { background: #23282d; }
+   .btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
+   
+   /* Top Bar */
+   .top-bar { padding: 8px 0; background: #ebebeb; position: relative; }
+   ul.top-info { list-style: none; margin: 0; padding: 0; }
+   ul.top-info li { position: relative; display: inline-block; margin-left: 0; padding-right: 15px; }
+   ul.top-info li i { font-size: 18px; position: relative; top: 2px; margin-right: 5px; }
+   .top-social ul { list-style: none; padding: 0; margin: 0; margin-right: -12px; }
+   .top-social ul li { display: inline-block; padding: 0; }
+   .top-social ul li a { color: #2c2c2c; font-size: 14px; padding: 9px 12px; }
+   
+   /* Header */
+   .header-one, .header-one .site-navigation { background: #23282d; }
+   .header-one .logo-area { padding: 30px 0; background: #fff; }
+   .navbar { border-radius: 0; border: 0; margin-bottom: 0; padding: 0;}
+   ul.navbar-nav > li > a { font-family: "Montserrat", sans-serif; color: #fff !important; font-weight: 700 !important; text-transform: uppercase; font-size: 14px; padding: 30px 0; display: block;}
+   ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
+   .dropdown-menu { border-top: 2px solid #ffb600; border-radius: 0; min-width: 200px; padding: 0; position: absolute; z-index: 1000; display: none; float: left; background-color: #fff; list-style: none; }
+   .dropdown-menu.show { display: block; }
+   .dropdown-menu li a { padding: 15px 20px; border-bottom: 1px solid #e5e5e5; color: #333 !important; font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; }
+   .dropdown-menu li a:hover { color: #ffb600 !important; background: none; }
+   .navbar-toggler { background: #ffb600; padding: 6px; border-radius: 0; margin: 10px 0; border: none; }
+   
+   /* Slider */
+   .banner-carousel .banner-carousel-item { height: 700px; background-size: cover; background-position: 50% 50%; position: relative; }
+   .slide-title { font-size: 52px; line-height: 60px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
+   .slide-sub-title { font-size: 24px; color: #fff; margin-bottom: 30px; display: block; font-weight: 700; text-transform: uppercase; }
+   .slider.btn { margin-right: 10px; pointer-events: auto !important; cursor: pointer; }
+   .slider.btn.border { border: 2px solid #ffb600; background: transparent; }
+   .slider.btn.border:hover { background: #ffb600; color: #fff; }
+   
+   /* Footer */
+   .footer { background-color: #0d0d0d; color: #999; }
+   .footer-main { padding: 80px 0 60px; }
+   .footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
+   .footer-social ul li a i { color: #999; font-size: 16px; padding: 10px 13px; }
+   .copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
+   
+   /* Services & Projects */
+   .ts-service-box { margin-bottom: 30px; display: flex; }
+   .ts-service-box-img { margin-right: 20px; width: 60px; }
+   .ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
+   .ts-service-box-info h3 a { color: #212121; }
+   
+   /* =========================================
+      VIRGILLO & NICHOLSON FINAL POLISH (DEC 4)
+      ========================================= */
+   
+   /* 1. LOGO SIZE FIX (Boosted Specificity) */
+   html body header .navbar-brand img, 
+   html body header .logo img {
+       max-height: 140px !important;
+       width: auto !important;
+       height: auto !important;
+       padding: 5px 0;
+       display: block;
+   }
+   
+   /* 2. FOOTER LOGO SHADOW (Boosted Specificity) */
+   html body footer .footer-logo,
+   html body .footer-widget .footer-logo {
+       filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+       -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+       display: block;
+       margin-bottom: 20px;
+   }
+   
+   /* 3. CALL BUTTON STYLE (Global) */
+   html body a.call-btn {
+       background-color: #ffb600 !important;
+       color: #fff !important;
+       padding: 12px 25px !important;
+       font-weight: 700 !important;
+       font-size: 14px !important;
+       border-radius: 5px;
+       text-transform: uppercase;
+       display: inline-block;
+       text-decoration: none;
+       line-height: 1;
+       border: none;
+       margin-top: 0; 
+       white-space: nowrap;
+   }
+   html body a.call-btn:hover {
+       background-color: #333 !important;
+       color: #ffb600 !important;
+   }
+   
+   /* 4. SLIDER TEXT & BUTTONS (Fixes Missing Text) */
+   .slider-content {
+       z-index: 9999 !important;
+       opacity: 1 !important;
+       visibility: visible !important;
+       pointer-events: none; /* Clicks pass through container */
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       width: 100%;
+   }
+   /* Re-enable clicks on contents */
+   .slider-content * {
+       pointer-events: auto !important;
+       position: relative;
+       z-index: 10000;
+   }
+   
+   /* 5. MOBILE HEADER (Flex Layout) */
+   @media (max-width: 991px) {
+       
+       /* Header Container */
+       html body .header-one .logo-area .row {
+           display: flex !important;
+           flex-direction: row !important;
+           justify-content: space-between !important;
+           align-items: center !important;
+           width: 100%;
+           margin: 0;
+           padding: 0 15px;
+       }
+   
+       /* Left: Logo */
+       html body .header-one .logo {
+           flex: 0 0 auto !important;
+           width: auto !important;
+           text-align: left !important;
+           padding: 0 !important;
+           margin: 0 !important;
+       }
+       html body header .logo img {
+           max-height: 80px !important; 
+       }
+   
+       /* Right: Call Button */
+       html body .header-one .header-right {
+           flex: 0 0 auto !important;
+           width: auto !important;
+           text-align: right !important;
+           float: none !important;
+           padding: 0 !important;
+       }
+   
+       /* Hide Lists */
+       html body ul.top-info-box {
+           display: block !important;
+           margin: 0 !important;
+           padding: 0 !important;
+       }
+       html body ul.top-info-box li {
+           display: none !important;
+       }
+       
+       /* Show Button Only */
+       html body ul.top-info-box li.header-get-a-quote {
+           display: block !important;
+           margin: 0 !important;
+           padding: 0 !important;
+           border: none !important;
+       }
+   
+       /* Fix Menu Background */
+       .navbar-collapse {
+           background: #222;
+           position: absolute;
+           top: 100%;
+           left: 0;
+           width: 100%;
+           z-index: 99999;
+           border-top: 1px solid #444;
+       }
+       
+       /* Fix Slider Height on Mobile */
+       .banner-carousel .banner-carousel-item {
+           height: 500px !important;
+       }
+   }
