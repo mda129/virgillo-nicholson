@@ -5,15 +5,45 @@
   <title>Virgillo & Nicholson Construction | Vanderbilt, PA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="icon" type="image/png" href="images/logo-1.png">
-  
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/animate-css/animate.css">
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
-  
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Force Logo Size */
+    header .logo img, .footer-logo { 
+        max-height: 120px !important; 
+        width: auto !important; 
+        display: block; 
+    }
+    /* Force Call Button Style */
+    a.call-btn {
+        background-color: #ffb600 !important;
+        color: #fff !important;
+        padding: 12px 25px !important;
+        font-weight: 700 !important;
+        border-radius: 5px;
+        text-transform: uppercase;
+        display: inline-block !important;
+        text-decoration: none;
+    }
+    /* Mobile Header Layout */
+    @media (max-width: 991px) {
+        .header-one .logo-area .row {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+        .header-one .logo { flex: 0 0 auto !important; }
+        .header-one .header-right { flex: 0 0 auto !important; }
+        .top-info-box li { display: none !important; }
+        .top-info-box li.header-get-a-quote { display: block !important; }
+        header .logo img { max-height: 70px !important; }
+    }
+  </style>
 </head>
 <body>
   <div class="body-inner">
@@ -23,20 +53,12 @@
           <div class="row">
               <div class="col-lg-8 col-md-8">
                 <ul class="top-info text-center text-md-left">
-                    <li>
-                      <p class="info-text" style="font-size: 13px;">
-                          <i class="fas fa-map-marker-alt"></i> Serving Fayette, Washington, Greene, Beaver, Butler, Somerset, Allegheny, Westmoreland
-                      </p>
-                    </li>
+                    <li><p class="info-text" style="font-size: 13px;"><i class="fas fa-map-marker-alt"></i> Serving Fayette, Washington, Greene, Beaver, Butler, Somerset, Allegheny, Westmoreland</p></li>
                 </ul>
               </div>
               <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                 <ul class="list-unstyled">
-                    <li>
-                      <a title="Facebook" href="https://www.facebook.com/profile.php?id=61580240711288" target="_blank">
-                          <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                      </a>
-                    </li>
+                    <li><a title="Facebook" href="https://www.facebook.com/profile.php?id=61580240711288" target="_blank"><span class="social-icon"><i class="fab fa-facebook-f"></i></span></a></li>
                 </ul>
               </div>
           </div>
@@ -53,28 +75,11 @@
                       <img loading="lazy" src="images/logo-1.png" alt="Virgillo & Nicholson Construction">
                     </a>
                 </div>
-      
                 <div class="col-lg-9 header-right">
                     <ul class="top-info-box">
-                      <li>
-                        <div class="info-box">
-                          <div class="info-box-content">
-                              <p class="info-box-title">Call Us</p>
-                              <p class="info-box-subtitle">724-255-9526</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="info-box">
-                          <div class="info-box-content">
-                              <p class="info-box-title">Email Us</p>
-                              <p class="info-box-subtitle">virgilloandnicholsonllc@yahoo.com</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="header-get-a-quote">
-                        <a class="btn btn-primary call-btn" href="tel:7242559526">Call Now</a>
-                      </li>
+                      <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Call Us</p><p class="info-box-subtitle">724-255-9526</p></div></div></li>
+                      <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Email Us</p><p class="info-box-subtitle">virgilloandnicholsonllc@yahoo.com</p></div></div></li>
+                      <li class="header-get-a-quote"><a class="call-btn" href="tel:7242559526">Call Now</a></li>
                     </ul>
                 </div>
               </div>
@@ -87,10 +92,7 @@
             <div class="row">
               <div class="col-lg-12">
                   <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav mr-auto">
                           <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
@@ -136,7 +138,7 @@
             <div class="container h-100">
               <div class="row align-items-center h-100">
                   <div class="col-md-12">
-                    <h2 class="slide-title" data-animation-in="slideInDown">Excavation Services</h2>
+                    <h2 class="slide-title-box" data-animation-in="slideInDown">Excavation Services</h2>
                     <h3 class="slide-title" data-animation-in="fadeIn">Precision Site Work</h3>
                     <p data-animation-in="slideInRight"><a href="site-work.html" class="slider btn btn-primary border">Learn More</a></p>
                   </div>
@@ -180,7 +182,7 @@
 
     <section id="ts-features" class="ts-features">
       <div class="container">
-        <div class="row align-items-start">
+        <div class="row">
             <div class="col-lg-6">
               <div class="ts-intro">
                   <h2 class="into-title">About Us</h2>
@@ -203,8 +205,7 @@
                   </div>
               </div>
             </div>
-
-            <div class="col-lg-6 mt-lg-0">
+            <div class="col-lg-6 mt-4 mt-lg-0">
               <h3 class="into-sub-title">Our Values</h3>
               <p>We handle any construction work, from small repairs and remodels to custom builds and large-scale commercial projects.</p>
               <div class="accordion accordion-group" id="our-values-accordion">
