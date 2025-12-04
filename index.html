@@ -12,21 +12,27 @@
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
-  <link rel="stylesheet" href="css/style.css?v=3"> <style>
-    /* 1. Force Logo Size (Web & Mobile) */
-    header .logo img { 
+  <link rel="stylesheet" href="css/style.css?v=4"> <style>
+    /* Logo Size */
+    header .logo img, .footer-logo { 
         max-height: 120px !important; 
         width: auto !important; 
-        padding: 5px 0;
+        display: block; 
     }
     
-    /* 2. Force Footer Shadow */
-    .footer-logo {
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
-        -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+    /* Call Button */
+    a.call-btn {
+        background-color: #ffb600 !important;
+        color: #fff !important;
+        padding: 12px 25px !important;
+        font-weight: 700 !important;
+        border-radius: 5px;
+        text-transform: uppercase;
+        display: inline-block !important;
+        text-decoration: none;
     }
 
-    /* 3. Mobile Header Layout */
+    /* Mobile Header Fix */
     @media (max-width: 991px) {
         .header-one .logo-area .row {
             display: flex !important;
@@ -35,30 +41,10 @@
         }
         .header-one .logo { flex: 0 0 auto !important; }
         .header-one .header-right { flex: 0 0 auto !important; }
-        
-        .logo img { max-height: 80px !important; margin: 0 auto; }
-        
+        header .logo img { max-height: 80px !important; margin: 0; }
         .top-info-box li { display: none !important; }
-        .top-info-box li.header-get-a-quote { display: block !important; margin: 0; }
-        .navbar-collapse { background: #333; padding: 10px; }
+        .top-info-box li.header-get-a-quote { display: block !important; }
     }
-
-    /* 4. Call Button Style */
-    .call-btn { 
-        background: #ffb600 !important; 
-        color: #fff !important; 
-        padding: 10px 20px !important; 
-        font-weight: bold; 
-        border-radius: 5px; 
-        text-transform: uppercase; 
-        display: inline-block !important; 
-        text-decoration: none !important;
-    }
-    .call-btn:hover { background: #333 !important; color: #ffb600 !important; }
-
-    /* 5. Fix Mobile Slider Buttons */
-    .slider-content { pointer-events: none; z-index: 999; }
-    .slider-content .btn, .slider-content a { pointer-events: auto; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -154,7 +140,7 @@
             <div class="container h-100">
               <div class="row align-items-center h-100">
                   <div class="col-md-12">
-                    <h2 class="slide-title-box" data-animation-in="slideInDown">Excavation Services</h2>
+                    <h2 class="slide-title" data-animation-in="slideInDown">Excavation Services</h2>
                     <h3 class="slide-title" data-animation-in="fadeIn">Precision Site Work</h3>
                     <p data-animation-in="slideInRight"><a href="site-work.html" class="slider btn btn-primary border">Learn More</a></p>
                   </div>
@@ -332,17 +318,7 @@
     <script src="plugins/colorbox/jquery.colorbox.js"></script>
     <script src="plugins/shuffle/shuffle.min.js" defer></script>
     <script src="js/script.js"></script>
-    
-    <script>
-      $(document).ready(function(){
-          window.onpageshow = function(event) {
-              if (event.persisted) {
-                  $('.banner-carousel').slick('setPosition');
-              }
-          };
-      });
-    </script>
-
+    <script>$(document).ready(function(){window.onpageshow=function(event){if(event.persisted){$('.banner-carousel').slick('setPosition');}};});</script>
   </div>
 </body>
 </html>
