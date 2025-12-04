@@ -1,12 +1,13 @@
 jQuery(function ($) {
     'use strict';
 
-    // 1. Mobile Menu Fix: Close menu when clicking a link
+    // 1. Mobile Menu Logic
+    // Close menu when clicking a link
     $('.navbar-nav>li>a').on('click', function(){
         $('.navbar-collapse').collapse('hide');
     });
 
-    // 2. Fixed Header Logic
+    // Fixed Header Logic
     $(window).on('scroll', function () {
         if ($(window).scrollTop() > 100) {
             $('.site-navigation').addClass('navbar-fixed');
@@ -15,29 +16,28 @@ jQuery(function ($) {
         }
     });
 
-    // 3. Slider Initialization (With Fade Fix)
     $(document).ready(function () {
-        // Main Banner Slider
+        // 2. Main Slider (With Fade Fix)
         $('.banner-carousel').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
+            autoplaySpeed: 6000,
             dots: false,
-            speed: 600,
             arrows: true,
-            fade: true, // Prevents "stuck slide" glitch
+            fade: true, // PREVENTS GLITCHING
             cssEase: 'linear',
             responsive: [
                 {
                     breakpoint: 768,
                     settings: {
-                        arrows: false // Hide arrows on mobile for cleaner look
+                        arrows: false // Hide arrows on mobile
                     }
                 }
             ]
         });
 
-        // Initialize other sliders if they exist
+        // Page Sliders
         if($('.page-slider').length) {
             $('.page-slider').slick({
                 fade: true,
@@ -49,7 +49,7 @@ jQuery(function ($) {
             });
         }
         
-        // Mobile Menu Dropdown Toggle
+        // Mobile Dropdowns
         if ($(window).width() < 992) {
             $('.dropdown-toggle').on('click', function(e) {
                 e.preventDefault();
@@ -59,5 +59,12 @@ jQuery(function ($) {
                 $(this).parent().find('.dropdown-menu').toggle();
             });
         }
+        
+        // Popup Gallery
+        $('.gallery-popup').colorbox({
+            rel: 'gallery-popup',
+            transition: 'slideshow',
+            innerHeight: '500'
+        });
     });
 });
