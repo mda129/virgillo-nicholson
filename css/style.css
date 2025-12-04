@@ -1,22 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
 
 /* =========================================
-   1. CORE DEFAULTS
+   1. CORE DEFAULTS (Your Original)
    ========================================= */
 body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
 a { color: inherit; transition: 0.2s ease; text-decoration: none; }
-a:hover { color: #ffb600; text-decoration: none; }
+a:hover { color: #ffb600; text-decoration: none; } /* Updated hover to yellow */
 ul { list-style: none; margin: 0; padding: 0; }
 img { max-width: 100%; height: auto; }
 
 /* Buttons */
-.btn { border: 0; border-radius: 3px; padding: 12px 25px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 13px; display: inline-block; cursor: pointer;}
-.btn-primary { background: #ffb600; color: #fff; }
-.btn-dark { background: #23282d; color: #fff; }
-.btn-primary:hover { background: #111; color: #fff; }
-.btn-dark:hover { background: #ffb600; color: #fff; }
-.btn-primary.border { border: 2px solid #ffb600; background: transparent; color: #fff; }
+.btn-primary, .btn-dark, .btn { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; display: inline-block; cursor: pointer; }
+.btn-primary { background: #ffb600; }
+.btn-dark { background: #23282d; }
+.btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
+.btn-primary.border { border: 2px solid #ffb600; background: transparent; color: #fff; } /* Missing Class Restored */
 .btn-primary.border:hover { background: #ffb600; color: #fff; }
 
 /* Layout Helpers */
@@ -60,126 +59,113 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
 .dropdown-menu li a { padding: 12px 20px; border-bottom: 1px solid #eee; color: #333 !important; font-size: 13px; font-weight: 600; }
 .dropdown-menu li a:hover { color: #ffb600 !important; background: none; }
 
-/* =========================================
-   3. SLIDER STYLES (REPAIRED)
-   ========================================= */
-.banner-carousel .banner-carousel-item { height: 600px; background-size: cover; background-position: center; position: relative; }
 
-/* Slider Text Container */
+/* =========================================
+   3. SLIDER STYLES
+   ========================================= */
+.banner-carousel .banner-carousel-item { height: 700px; background-size: cover; background-position: center; position: relative; }
+
+/* Text Container */
 .slider-content {
     position: absolute; top: 50%; width: 100%; transform: translateY(-50%);
-    z-index: 9999 !important; /* Forces text to sit ON TOP of images */
+    z-index: 9999 !important; /* Fixed Z-Index */
     opacity: 1 !important;
     visibility: visible !important;
-    pointer-events: none; /* Allows swiping/scrolling through the container */
+    pointer-events: none; 
 }
-/* Re-enable clicking on text and buttons */
 .slider-content * { pointer-events: auto !important; }
 
-/* Slider Typography (Restored) */
-.slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; line-height: 1.2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-.slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-/* The Boxed Title Style */
+/* Slider Typography */
+.slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
+.slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block; }
+.slider.btn { margin-right: 10px; }
+
+/* --- RESTORED MISSING STYLES (This fixes the "Different Look") --- */
 .slide-title-box { display: inline-block; padding: 10px 25px; background: rgba(33, 33, 33, 0.8); color: #ffb600; font-size: 40px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; border-left: 5px solid #ffb600; }
 
-/* Slider Buttons */
-.slider.btn { margin-right: 15px; margin-top: 10px; }
-
-/* Slider Navigation Arrows (Restored) */
+/* --- RESTORED ARROWS (This fixes the "Wrong Spot") --- */
 .banner-carousel .slick-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%); 
+    position: absolute; top: 50%; z-index: 10; 
     background: rgba(0,0,0,0.5); width: 50px; height: 50px; 
-    line-height: 50px; text-align: center; color: #fff; z-index: 10; 
-    border: 0; cursor: pointer; transition: 0.3s; font-size: 18px;
+    line-height: 50px; text-align: center; color: #fff; border: 0; 
+    transform: translateY(-50%); cursor: pointer; transition: 0.3s;
 }
 .banner-carousel .slick-arrow:hover { background: #ffb600; }
 .banner-carousel .slick-prev { left: 0; }
 .banner-carousel .slick-next { right: 0; }
 
+
 /* =========================================
-   4. CONTENT BLOCKS (REPAIRED)
+   4. CONTENT BLOCKS (Restored Missing Parts)
    ========================================= */
-/* About Us / Into Section */
+/* About Us Styling */
 .ts-intro { margin-bottom: 30px; }
 .into-title { font-size: 32px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: -1px; }
 .into-sub-title { font-size: 16px; color: #ffb600; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; letter-spacing: 1px; }
 
-/* Call to Action Box */
+/* Call to Action Styling */
 .call-to-action-box { background: #23282d; padding: 40px 0; }
 .action-style-box { background: #23282d; color: #fff; border-left: 3px solid #ffb600; padding: 20px; }
 .action-title { font-size: 24px; color: #fff; margin: 0; }
 
 /* Service Boxes */
 .ts-service-box { margin-bottom: 30px; display: flex; }
-.ts-service-box-img { margin-right: 20px; width: 60px; text-align: center; }
-.ts-service-box-icon i { font-size: 40px; color: #ffb600; }
-.ts-service-box-info h3 { font-size: 18px; margin: 0 0 10px; }
+.ts-service-box-img { margin-right: 20px; width: 60px; }
+.ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
 .ts-service-box-info h3 a { color: #212121; }
 
 /* Accordion */
-.card { border: none; border-bottom: 1px solid #ebebeb; margin-bottom: 10px; }
-.card-header { background: none; padding: 0; border: 0; }
-.card-header .btn { width: 100%; text-align: left; color: #333; padding: 15px 0; font-weight: 700; text-decoration: none; display: block; white-space: normal;}
-.card-header .btn:hover { color: #ffb600; }
+.accordion-group .card { border: none; border-bottom: 1px solid #eee; }
+.accordion-group .card-header .btn { width: 100%; text-align: left; font-weight: 700; text-transform: uppercase; color: #333; text-decoration: none; padding: 15px 0;}
+.accordion-group .card-header .btn:hover { color: #ffb600; }
+
 
 /* =========================================
-   5. FOOTER STYLES
+   5. FOOTER & MISC
    ========================================= */
-.footer { background-color: #111; color: #999; }
+.footer { background-color: #0d0d0d; color: #999; }
 .footer-main { padding: 80px 0 60px; }
 .footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
-.footer ul li { margin-bottom: 15px; }
-.footer ul li a { color: #999; }
-.footer ul li a:hover { color: #ffb600; }
-
-/* Footer Copyright Bar (Fixed Color) */
-.copyright { 
-    background: #1a1a1a; /* Dark Grey (Professional) instead of Yellow */
-    color: #888; 
-    padding: 25px 0; 
-    font-size: 13px; 
-    border-top: 1px solid #333;
-}
-.copyright a { color: #fff; font-weight: 600; }
+.copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
 
 /* Footer Logo Glow Fix */
 .footer-logo {
-    /* Uses a heavy white shadow to make the logo pop without a box */
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-    -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 3px #fff);
+    -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 3px #fff);
     margin-bottom: 25px;
-    max-height: 80px !important;
-    width: auto !important;
+    max-height: 120px !important;
+    width: auto !important; 
     display: block;
 }
 
+
 /* =========================================
-   6. GLOBAL FIXES & MOBILE OVERRIDES
+   6. GLOBAL OVERRIDES (THE REQUESTED FIXES)
    ========================================= */
 
-/* Header Logo Size (Desktop) */
+/* BIGGER HEADER LOGO (Desktop) */
 header .logo img { 
-    max-height: 160px !important; 
+    max-height: 160px !important; /* Increased Size */
     width: auto !important; 
     padding: 5px 0;
     transition: 0.3s ease;
 }
 
-/* Universal "Call Now" Button Style */
+/* Call Button - Universal Look */
 a.call-btn {
     background-color: #ffb600 !important;
     color: #fff !important;
     padding: 12px 25px !important;
     font-weight: 700;
-    border-radius: 3px;
+    border-radius: 5px;
     text-transform: uppercase;
     display: inline-block;
     text-decoration: none;
     white-space: nowrap;
 }
-a.call-btn:hover { background-color: #fff !important; color: #111 !important; }
+a.call-btn:hover { background-color: #333 !important; }
 
-/* MOBILE LAYOUT (Applied to ALL pages) */
+/* MOBILE LAYOUT & FIXES (Max Width 991px) */
 @media (max-width: 991px) {
     /* Header Layout */
     .header-one .logo-area .row {
@@ -190,10 +176,10 @@ a.call-btn:hover { background-color: #fff !important; color: #111 !important; }
         flex-wrap: nowrap !important;
         padding: 10px 15px;
     }
-
+    
     /* Logo Sizing */
     .header-one .logo { flex: 0 1 auto !important; max-width: 65%; }
-    header .logo img { max-height: 60px !important; }
+    header .logo img { max-height: 70px !important; }
 
     /* Button Area */
     .header-one .header-right { flex: 0 0 auto !important; width: auto !important; padding: 0; }
@@ -216,9 +202,8 @@ a.call-btn:hover { background-color: #fff !important; color: #111 !important; }
     }
     
     /* Slider Mobile Height */
-    .banner-carousel .banner-carousel-item { height: 450px !important; }
-    .slide-title { font-size: 28px !important; line-height: 34px; margin-bottom: 10px; }
-    .slide-title-box { font-size: 24px !important; padding: 5px 15px; }
-    .slide-sub-title { font-size: 16px !important; margin-bottom: 20px; }
-    .slider.btn { font-size: 12px; padding: 10px 15px; margin-bottom: 5px; }
+    .banner-carousel .banner-carousel-item { height: 500px !important; }
+    .slide-title { font-size: 28px; line-height: 36px; }
+    .slide-sub-title { font-size: 18px; margin-bottom: 15px; }
+    .slider.btn { font-size: 12px; padding: 10px 15px; margin-bottom: 10px; }
 }
