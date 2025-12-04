@@ -24,7 +24,25 @@
         }
     }
 
-    /* 2. MOBILE HEADER LAYOUT (Logo Left / Button Right) */
+    /* 2. FORCE SLIDER TEXT VISIBILITY (The Missing Link) */
+    /* This ensures text sits ON TOP of the fading images */
+    .slider-content {
+        z-index: 9999 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: none; 
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+    .slider-content * {
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 10000;
+    }
+
+    /* 3. FORCE MOBILE LAYOUT */
     @media (max-width: 991px) {
         .header-one .logo-area .row {
             display: flex !important;
@@ -37,33 +55,25 @@
             flex: 0 0 auto !important; 
             width: auto !important; 
             margin: 0 !important; 
-            padding-left: 10px;
         }
         .header-one .header-right { 
             flex: 0 0 auto !important; 
             width: auto !important; 
             text-align: right !important;
-            padding-right: 10px;
         }
-        
-        /* Hide text info */
+        /* Hide text info, show button */
         .top-info-box { display: block !important; margin: 0 !important; padding: 0 !important; }
         .top-info-box li { display: none !important; }
-        
-        /* Show Button */
         .top-info-box li.header-get-a-quote { display: block !important; margin: 0 !important; }
         
         /* Mobile Logo Size */
-        header .logo img { max-height: 80px !important; margin: 0; }
+        header .logo img { max-height: 80px !important; }
         
         /* Mobile Button Size */
         a.call-btn { padding: 8px 15px !important; font-size: 12px !important; }
-
-        /* Fix Menu Background */
-        .navbar-collapse { background: #333; padding: 10px; margin-top: 10px; }
     }
     
-    /* 3. CALL BUTTON STYLE */
+    /* 4. CALL BUTTON STYLE */
     a.call-btn {
         background-color: #ffb600 !important;
         color: #fff !important;
@@ -75,7 +85,7 @@
         text-decoration: none;
     }
     
-    /* 4. FOOTER SHADOW */
+    /* 5. FOOTER SHADOW */
     .footer-logo {
         filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
     }
