@@ -12,89 +12,75 @@
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
-  <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/style.css?v=final-fix">
+  
   <style>
-    /* 1. FORCE LOGO SIZE (Web) */
-    @media (min-width: 992px) {
-        header .logo img { 
-            max-height: 140px !important; 
-            width: auto !important; 
-            max-width: none !important;
-        }
+    /* 1. FORCE SLIDER TEXT VISIBILITY (Fixes the missing text) */
+    /* This overrides the broken animation system so text is always 100% visible */
+    .banner-carousel [data-animation-in] {
+        opacity: 1 !important;
+        animation: none !important;
     }
-
-    /* 2. FORCE SLIDER TEXT VISIBILITY (The Missing Link) */
-    /* This ensures text sits ON TOP of the fading images */
     .slider-content {
         z-index: 9999 !important;
         opacity: 1 !important;
         visibility: visible !important;
-        pointer-events: none; 
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-    }
-    .slider-content * {
-        pointer-events: auto !important;
-        position: relative;
-        z-index: 10000;
     }
 
-    /* 3. FORCE MOBILE LAYOUT */
+    /* 2. FORCE LOGO SIZE (Stops it from shrinking on scroll) */
+    header .logo img,
+    .navbar-fixed .logo img,
+    .header-one .logo img { 
+        max-height: 120px !important; 
+        width: auto !important; 
+        height: auto !important;
+        padding: 5px 0;
+        display: block;
+    }
+
+    /* 3. FORCE FOOTER SHADOW */
+    .footer-logo {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+    }
+
+    /* 4. MOBILE LAYOUT */
     @media (max-width: 991px) {
         .header-one .logo-area .row {
             display: flex !important;
-            flex-direction: row !important;
             justify-content: space-between !important;
             align-items: center !important;
-            flex-wrap: nowrap !important;
         }
-        .header-one .logo { 
-            flex: 0 0 auto !important; 
-            width: auto !important; 
-            margin: 0 !important; 
-        }
-        .header-one .header-right { 
-            flex: 0 0 auto !important; 
-            width: auto !important; 
-            text-align: right !important;
-        }
-        /* Hide text info, show button */
-        .top-info-box { display: block !important; margin: 0 !important; padding: 0 !important; }
-        .top-info-box li { display: none !important; }
-        .top-info-box li.header-get-a-quote { display: block !important; margin: 0 !important; }
+        .header-one .logo { flex: 0 0 auto !important; width: auto !important; }
+        .header-one .header-right { flex: 0 0 auto !important; width: auto !important; text-align: right; }
         
         /* Mobile Logo Size */
         header .logo img { max-height: 80px !important; }
         
-        /* Mobile Button Size */
-        a.call-btn { padding: 8px 15px !important; font-size: 12px !important; }
+        /* Show Only Button */
+        .top-info-box li { display: none !important; }
+        .top-info-box li.header-get-a-quote { display: block !important; margin: 0 !important; }
+        
+        /* Fix Menu */
+        .navbar-collapse { background: #333; padding: 10px; margin-top: 10px; }
     }
-    
-    /* 4. CALL BUTTON STYLE */
+
+    /* 5. CALL BUTTON STYLE */
     a.call-btn {
         background-color: #ffb600 !important;
         color: #fff !important;
-        padding: 12px 25px;
-        font-weight: 700;
+        padding: 10px 20px !important;
+        font-weight: 700 !important;
         border-radius: 5px;
         text-transform: uppercase;
         display: inline-block !important;
-        text-decoration: none;
-    }
-    
-    /* 5. FOOTER SHADOW */
-    .footer-logo {
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+        text-decoration: none !important;
+        white-space: nowrap;
     }
   </style>
 </head>
 <body>
   <div class="body-inner">
 
-    <!-- TOP BAR -->
     <div id="top-bar" class="top-bar">
         <div class="container">
           <div class="row">
@@ -112,25 +98,21 @@
         </div>
     </div>
 
-    <!-- HEADER -->
     <header id="header" class="header-one">
       <div class="bg-white">
         <div class="container">
           <div class="logo-area">
               <div class="row align-items-center">
-                <!-- WIDENED LOGO COLUMN (col-lg-4) -->
                 <div class="logo col-lg-4 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                     <a class="d-block" href="index.html">
                       <img loading="lazy" src="images/logo-1.png" alt="Virgillo & Nicholson Construction">
                     </a>
                 </div>
-                <!-- SHRUNK INFO COLUMN (col-lg-8) -->
                 <div class="col-lg-8 header-right">
                     <ul class="top-info-box">
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Call Us</p><p class="info-box-subtitle">724-255-9526</p></div></div></li>
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Email Us</p><p class="info-box-subtitle">virgilloandnicholsonllc@yahoo.com</p></div></div></li>
                       <li class="header-get-a-quote">
-                        <!-- BUTTON WITH CLASS AND INLINE STYLE -->
                         <a class="btn btn-primary call-btn" href="tel:7242559526">Call Now</a>
                       </li>
                     </ul>
@@ -169,16 +151,15 @@
       </div>
     </header>
 
-    <!-- SLIDER -->
     <div class="banner-carousel banner-carousel-1 mb-0">
       <div class="banner-carousel-item" style="background-image:url(images/team/owners.jpeg)">
         <div class="slider-content">
             <div class="container h-100">
               <div class="row align-items-center h-100">
                   <div class="col-md-12 text-center">
-                    <h2 class="slide-title" data-animation-in="slideInLeft">Virgillo & Nicholson Construction LLC</h2>
-                    <h3 class="slide-sub-title" data-animation-in="slideInRight">Jeffrey Nicholson & Matthew Virgillo</h3>
-                    <p data-animation-in="slideInLeft">
+                    <h2 class="slide-title">Virgillo & Nicholson Construction LLC</h2>
+                    <h3 class="slide-sub-title">Jeffrey Nicholson & Matthew Virgillo</h3>
+                    <p>
                         <a href="about.html" class="slider btn btn-primary">Our Story</a>
                         <a href="contact.html" class="slider btn btn-primary border">Contact Us</a>
                     </p>
@@ -192,9 +173,9 @@
             <div class="container h-100">
               <div class="row align-items-center h-100">
                   <div class="col-md-12">
-                    <h2 class="slide-title-box" data-animation-in="slideInDown">Excavation Services</h2>
-                    <h3 class="slide-title" data-animation-in="fadeIn">Precision Site Work</h3>
-                    <p data-animation-in="slideInRight"><a href="site-work.html" class="slider btn btn-primary border">Learn More</a></p>
+                    <h2 class="slide-title">Excavation Services</h2>
+                    <h3 class="slide-title">Precision Site Work</h3>
+                    <p><a href="site-work.html" class="slider btn btn-primary border">Learn More</a></p>
                   </div>
               </div>
             </div>
@@ -205,9 +186,9 @@
             <div class="container h-100">
               <div class="row align-items-center h-100">
                   <div class="col-md-12">
-                    <h2 class="slide-title" data-animation-in="slideInDown">Quality Concrete</h2>
-                    <h3 class="slide-sub-title" data-animation-in="fadeIn">Foundations & Driveways</h3>
-                    <div data-animation-in="slideInLeft"><a href="contact.html" class="slider btn btn-primary">Get Free Quote</a></div>
+                    <h2 class="slide-title">Quality Concrete</h2>
+                    <h3 class="slide-sub-title">Foundations & Driveways</h3>
+                    <div><a href="contact.html" class="slider btn btn-primary">Get Free Quote</a></div>
                   </div>
               </div>
             </div>
@@ -215,7 +196,6 @@
       </div>
     </div>
 
-    <!-- CALL TO ACTION -->
     <section class="call-to-action-box no-padding">
       <div class="container">
         <div class="action-style-box">
@@ -235,7 +215,6 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (CORRECT LAYOUT) -->
     <section id="ts-features" class="ts-features">
       <div class="container">
         <div class="row">
@@ -285,7 +264,6 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="ts-service-area" class="ts-service-area pb-0">
       <div class="container">
         <div class="row text-center">
@@ -322,7 +300,6 @@
       </div>
     </section>
 
-    <!-- NEWS -->
     <section id="news" class="news">
       <div class="container">
         <div class="row text-center">
@@ -349,7 +326,6 @@
           <div class="row justify-content-between">
             <div class="col-lg-4 col-md-6 footer-widget footer-about">
               <h3 class="widget-title">About Us</h3>
-              <!-- FOOTER LOGO -->
               <img loading="lazy" width="200px" class="footer-logo" src="images/logo-1.png" alt="Virgillo & Nicholson">
               <p>Virgillo & Nicholson Construction LLC is a fully insured, family-owned company serving Fayette, Washington, Greene, Beaver, Butler, Somerset, Allegheny, and Westmoreland counties.</p>
               <div class="footer-social"><ul><li><a href="https://www.facebook.com/profile.php?id=61580240711288" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li></ul></div>
@@ -375,7 +351,16 @@
     <script src="plugins/colorbox/jquery.colorbox.js"></script>
     <script src="plugins/shuffle/shuffle.min.js" defer></script>
     <script src="js/script.js"></script>
-    <script>$(document).ready(function(){window.onpageshow=function(event){if(event.persisted){$('.banner-carousel').slick('setPosition');}};});</script>
+    
+    <script>
+      $(document).ready(function(){
+          window.onpageshow = function(event) {
+              if (event.persisted) {
+                  $('.banner-carousel').slick('setPosition');
+              }
+          };
+      });
+    </script>
   </div>
 </body>
 </html>
