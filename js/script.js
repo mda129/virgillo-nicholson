@@ -126,3 +126,19 @@ jQuery(function ($) {
         mediaPopup();
     });
 });
+
+/* =======================================================
+   BROWSER BACK/FORWARD CACHE FIX
+   Add to the bottom of js/script.js
+   ======================================================= */
+   $(window).on("pageshow", function(event) {
+    // If the page was pulled from the "back-forward cache" (bfcache)
+    if (event.originalEvent.persisted) {
+        // Force the Slick Slider to re-calculate its position
+        $('.banner-carousel').slick('setPosition');
+        $('.page-slider').slick('setPosition');
+        
+        // Optional: Force a full reload if sliders are still breaking
+        // window.location.reload(); 
+    }
+});
