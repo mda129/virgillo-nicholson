@@ -12,51 +12,47 @@
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <link rel="stylesheet" href="css/style.css">
+  
   <style>
-    /* 1. Force Logo Size (Nuclear Option) */
-    header .logo img { 
-        max-height: 120px !important; 
-        width: auto !important; 
-        max-width: none !important; /* Allows it to overflow the column if needed */
-        display: block; 
-    }
-    
-    /* 2. Force Footer Shadow */
-    .footer-logo {
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
-        -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
-        max-height: 120px !important;
+    /* Force Logo Size (Web) */
+    @media (min-width: 992px) {
+        header .logo img { 
+            max-height: 140px !important; 
+            width: auto !important; 
+            max-width: none !important;
+        }
     }
 
-    /* 3. Mobile Header Layout */
+    /* Force Mobile Layout (Logo Left / Button Right) */
     @media (max-width: 991px) {
         .header-one .logo-area .row {
             display: flex !important;
+            flex-direction: row !important;
             justify-content: space-between !important;
             align-items: center !important;
+            flex-wrap: nowrap !important;
         }
-        .header-one .logo { flex: 0 0 auto !important; }
-        .header-one .header-right { flex: 0 0 auto !important; }
-        
-        .logo img { max-height: 80px !important; margin: 0; }
-        
+        .header-one .logo { 
+            flex: 0 0 auto !important; 
+            width: auto !important; 
+            margin: 0 !important; 
+        }
+        .header-one .header-right { 
+            flex: 0 0 auto !important; 
+            width: auto !important; 
+            text-align: right !important;
+        }
+        /* Hide text info, show button */
+        .top-info-box { display: block !important; margin: 0 !important; padding: 0 !important; }
         .top-info-box li { display: none !important; }
-        .top-info-box li.header-get-a-quote { display: block !important; }
-        .navbar-collapse { background: #333; padding: 10px; }
+        .top-info-box li.header-get-a-quote { display: block !important; margin: 0 !important; }
+        
+        /* Mobile Logo Size */
+        header .logo img { max-height: 80px !important; }
+        
+        /* Mobile Button Size */
+        a.call-btn { padding: 8px 15px !important; font-size: 12px !important; }
     }
-
-    /* 4. Call Button Style */
-    .call-btn { 
-        background: #ffb600 !important; 
-        color: #fff !important; 
-        padding: 12px 25px !important; 
-        font-weight: 700 !important; 
-        border-radius: 5px; 
-        text-transform: uppercase; 
-        display: inline-block !important; 
-        text-decoration: none !important;
-    }
-    .call-btn:hover { background: #333 !important; color: #ffb600 !important; }
   </style>
 </head>
 <body>
@@ -94,7 +90,7 @@
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Call Us</p><p class="info-box-subtitle">724-255-9526</p></div></div></li>
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Email Us</p><p class="info-box-subtitle">virgilloandnicholsonllc@yahoo.com</p></div></div></li>
                       <li class="header-get-a-quote">
-                         <a class="btn btn-primary call-btn" href="tel:7242559526">Call Now</a>
+                        <a class="btn btn-primary call-btn" href="tel:7242559526" style="background-color: #ffb600 !important; color: #fff !important; border-radius: 5px; padding: 12px 25px; display: inline-block;">Call Now</a>
                       </li>
                     </ul>
                 </div>
@@ -222,6 +218,7 @@
               </div>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
+              <div style="height: 28px;" class="d-none d-lg-block"></div>
               <h3 class="into-sub-title">Our Values</h3>
               <p>We handle any construction work, from small repairs and remodels to custom builds and large-scale commercial projects.</p>
               <div class="accordion accordion-group" id="our-values-accordion">
@@ -307,7 +304,7 @@
           <div class="row justify-content-between">
             <div class="col-lg-4 col-md-6 footer-widget footer-about">
               <h3 class="widget-title">About Us</h3>
-              <img loading="lazy" width="200px" class="footer-logo" src="images/logo-1.png" alt="Virgillo & Nicholson">
+              <img loading="lazy" width="200px" class="footer-logo" src="images/logo-1.png" alt="Virgillo & Nicholson" style="filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)); -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));">
               <p>Virgillo & Nicholson Construction LLC is a fully insured, family-owned company serving Fayette, Washington, Greene, Beaver, Butler, Somerset, Allegheny, and Westmoreland counties.</p>
               <div class="footer-social"><ul><li><a href="https://www.facebook.com/profile.php?id=61580240711288" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li></ul></div>
             </div>
