@@ -1,195 +1,226 @@
-/* =========================================
-   1. ORIGINAL TEMPLATE STYLES (RESTORED)
-   ========================================= */
-   @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
 
-   body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; }
-   h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
-   h1 { font-size: 36px; line-height: 48px; }
-   h2 { font-size: 28px; line-height: 36px; text-transform: uppercase; letter-spacing: -1px; }
-   h3 { font-size: 24px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -0.5px; }
-   h4 { font-size: 18px; line-height: 28px; text-transform: uppercase; letter-spacing: -0.2px; }
-   h5 { font-size: 14px; line-height: 24px; }
-   a { color: inherit; transition: 0.2s ease; text-decoration: none; }
-   a:hover { color: #000; text-decoration: none; }
-   section, .section-padding { padding: 70px 0; position: relative; }
-   .no-padding { padding: 0; }
-   .gap-60 { clear: both; height: 60px; }
-   .gap-40 { clear: both; height: 40px; }
-   .gap-20 { clear: both; height: 20px; }
-   .mrb-30 { margin-bottom: 30px; }
-   .mrt-0 { margin-top: 0 !important; margin-bottom: 20px !important; }
-   .bg-overlay { position: relative; }
-   .bg-overlay .container { position: relative; z-index: 1; }
-   .bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
-   
-   /* Buttons */
-   .btn-primary, .btn-dark { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; }
-   .btn-primary { background: #ffb600; }
-   .btn-dark { background: #23282d; }
-   .btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
-   .general-btn { margin-top: 50px; }
-   
-   /* Top Bar */
-   .top-bar { padding: 8px 0; background: #ebebeb; position: relative; }
-   ul.top-info { list-style: none; margin: 0; padding: 0; }
-   ul.top-info li { position: relative; display: inline-block; margin-left: 0; padding-right: 15px; }
-   ul.top-info li i { font-size: 18px; position: relative; top: 2px; margin-right: 5px; }
-   .top-social ul { list-style: none; padding: 0; margin: 0; margin-right: -12px; }
-   .top-social ul li { display: inline-block; padding: 0; }
-   .top-social ul li a { color: #2c2c2c; font-size: 14px; padding: 9px 12px; }
-   
-   /* Header */
-   .header { background: #fff; position: relative; box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1); }
-   .header-one, .header-one .site-navigation { background: #23282d; }
-   .header-one .logo-area { padding: 30px 0; }
-   .navbar { border-radius: 0; border: 0; margin-bottom: 0; }
-   .navbar-toggler { background: #ffb600; padding: 6px; margin: 10px 0; border-radius: 0; }
-   ul.navbar-nav > li > a { font-family: "Montserrat", sans-serif; color: #fff !important; font-weight: 700 !important; text-transform: uppercase; font-size: 14px; padding: 30px 0; }
-   ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
-   .dropdown-menu { border-top: 2px solid #ffb600; border-radius: 0; min-width: 200px; padding: 0 20px; margin: 0; box-shadow: 0 6px 12px rgba(0,0,0,.175); background: #fff; }
-   .dropdown-menu li a { padding: 15px 0; border-bottom: 1px solid #e5e5e5; color: #333; font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; }
-   .dropdown-menu li a:hover { color: #ffb600; background: none; }
-   
-   /* Header Right & Logo */
-   .logo img { width: auto; height: 35px; }
-   .header-right { float: right; }
-   ul.top-info-box { list-style: none; margin: 0; padding: 0; float: right; }
-   ul.top-info-box li { float: left; margin-left: 0; border-right: 1px solid #dedede; padding-right: 25px; margin-right: 25px; }
-   ul.top-info-box li:last-child { margin-right: 0; padding-right: 0; border-right: 0; }
-   .info-box .info-box-title { font-size: 14px; margin-bottom: 8px; line-height: normal; }
-   .info-box .info-box-subtitle { margin: 0; line-height: normal; font-size: 15px; font-weight: 700; color: #111; }
-   .header-get-a-quote .btn-primary { padding: 12px 25px !important; font-size: 13px; margin-top: 5px; color: #fff; }
-   
-   /* Slider (Restored Arrows) */
-   .banner-carousel .banner-carousel-item { height: 700px; color: #fff; background-position: 50% 50%; background-size: cover; }
-   .slider-content { position: relative; height: 100%; width: 100%; }
-   .slide-title { font-size: 30px; line-height: 36px; font-weight: 300; color: #fff; margin: 20px 0 10px; }
-   .slide-sub-title { font-size: 60px; line-height: 58px; margin: 20px 0; color: #fff; font-weight: 900; text-transform: uppercase; }
-   .slider.btn { margin: 15px 5px 0; border: 2px solid transparent; }
-   .slider.border { background: none; border: 2px solid #ffb600 !important; }
-   .slider.border:hover { background: #ffb600; border: 2px solid transparent; }
-   .banner-carousel .carousel-control { position: absolute; top: 50%; z-index: 5; background-color: transparent; opacity: 0; transition: all 0.25s ease; border: 0; }
-   .banner-carousel:hover .carousel-control { opacity: 1; }
-   .banner-carousel .carousel-control i { background: rgba(0, 0, 0, 0.3); color: #fff; line-height: 58px; width: 60px; height: 60px; font-size: 22px; }
-   .banner-carousel .carousel-control i:hover { background: #ffb600; color: #fff; }
-   .banner-carousel .carousel-control.left { left: 20px; }
-   .banner-carousel .carousel-control.right { right: 20px; }
-   
-   /* Footer (Restored Color) */
-   .footer { background-color: #0d0d0d; color: #999; }
-   .footer-main { padding: 80px 0 60px; }
-   .footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
-   .footer-social ul li a i { display: block; font-size: 16px; color: #999; padding: 10px 13px; }
-   .copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
-   
-   /* Services & Projects */
-   .ts-service-box { margin-bottom: 30px; }
-   .ts-service-box .ts-service-icon i { font-size: 36px; float: left; color: #ffb600; }
-   .ts-service-box .ts-service-box-content { margin-left: 62px; margin-bottom: 30px; }
-   .ts-service-box .ts-service-box-info { margin-left: 25px; margin-bottom: 40px; }
-   
-   /* =========================================
-      2. VIRGILLO & NICHOLSON OVERRIDES (DEC 4)
-      ========================================= */
-   
-   /* LOGO SIZE FIX */
-   header .logo img, .footer-logo {
-       max-height: 120px !important;
-       width: auto !important;
-       height: auto !important;
-       padding: 5px 0;
-       display: block;
-   }
-   
-   /* FOOTER LOGO SHADOW */
-   .footer-logo {
-       filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
-       margin-bottom: 25px;
-   }
-   
-   /* CALL BUTTON STYLE */
-   a.call-btn {
-       background-color: #ffb600 !important;
-       color: #fff !important;
-       padding: 12px 25px !important;
-       font-weight: 700 !important;
-       font-size: 14px !important;
-       border-radius: 5px;
-       text-transform: uppercase;
-       display: inline-block;
-       text-decoration: none;
-       line-height: 1;
-       border: none;
-       margin-top: 0; 
-       white-space: nowrap;
-   }
-   a.call-btn:hover {
-       background-color: #333 !important;
-       color: #ffb600 !important;
-   }
-   
-   /* SLIDER BUTTON & TEXT FIX (Z-Index) */
-   .slider-content {
-       pointer-events: none;
-       z-index: 999 !important;
-   }
-   .slider-content * {
-       pointer-events: auto !important;
-   }
-   
-   /* MOBILE HEADER LAYOUT FIX */
-   @media (max-width: 991px) {
-       /* Flex Container */
-       .header-one .logo-area .row {
-           display: flex !important;
-           flex-direction: row !important;
-           justify-content: space-between !important;
-           align-items: center !important;
-           width: 100%;
-           margin: 0;
-           padding: 0 15px;
-       }
-   
-       /* Logo Left */
-       .header-one .logo {
-           flex: 0 0 auto !important;
-           width: auto !important;
-           text-align: left !important;
-           padding: 0 !important;
-       }
-       header .logo img { max-height: 70px !important; }
-   
-       /* Call Button Right */
-       .header-one .header-right {
-           flex: 0 0 auto !important;
-           width: auto !important;
-           padding: 0;
-           text-align: right;
-       }
-   
-       /* Hide Text Lists */
-       ul.top-info-box {
-           display: block !important; margin: 0; padding: 0; float: none;
-       }
-       ul.top-info-box li { display: none !important; }
-       ul.top-info-box li.header-get-a-quote { 
-           display: block !important; border: none !important; margin: 0 !important; padding: 0 !important; 
-       }
-       
-       /* Smaller Button */
-       a.call-btn { font-size: 12px !important; padding: 8px 15px !important; }
-       
-       /* Slider Height Mobile */
-       .banner-carousel .banner-carousel-item { height: 500px !important; }
-       
-       /* Menu Background */
-       .navbar-collapse {
-           background: #212121;
-           position: absolute;
-           top: 100%;
-           left: 0;
-           width: 100%;
-           z-index: 9999;
-       }
-   }
+/* =========================================
+   1. CORE DEFAULTS
+   ========================================= */
+body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
+a { color: inherit; transition: 0.2s ease; text-decoration: none; }
+a:hover { color: #000; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+/* Buttons */
+.btn-primary, .btn-dark { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; display: inline-block; }
+.btn-primary { background: #ffb600; }
+.btn-dark { background: #23282d; }
+.btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
+
+/* Layout Helpers */
+section, .section-padding { padding: 70px 0; position: relative; }
+.no-padding { padding: 0; }
+.gap-60 { clear: both; height: 60px; }
+.gap-40 { clear: both; height: 40px; }
+.gap-20 { clear: both; height: 20px; }
+.bg-overlay { position: relative; }
+.bg-overlay .container { position: relative; z-index: 1; }
+.bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
+
+/* =========================================
+   2. HEADER & NAVIGATION (FIXED)
+   ========================================= */
+.top-bar { padding: 8px 0; background: #ebebeb; }
+ul.top-info li { display: inline-block; padding-right: 15px; }
+ul.top-info li i { color: #ffb600; margin-right: 5px; }
+.top-social ul li { display: inline-block; }
+.top-social ul li a { padding: 9px 12px; color: #2c2c2c; }
+
+.header-one, .site-navigation { background: #23282d; }
+.header-one .logo-area { padding: 20px 0; background: #fff; }
+
+/* LOGO SIZING (Universal Fix) */
+header .logo img, .footer-logo { 
+    max-height: 120px !important; 
+    width: auto !important; 
+    display: block; 
+    padding: 5px 0;
+}
+
+/* Header Right Info */
+ul.top-info-box { float: right; display: flex; align-items: center; }
+ul.top-info-box li { border-right: 1px solid #dedede; padding-right: 25px; margin-right: 25px; }
+ul.top-info-box li:last-child { border: 0; margin: 0; padding: 0; }
+.info-box-title { font-size: 14px; margin-bottom: 5px; }
+.info-box-subtitle { font-weight: 700; color: #111; margin: 0; }
+
+/* CALL BUTTON STYLE (Universal Fix) */
+a.call-btn {
+    background-color: #ffb600 !important;
+    color: #fff !important;
+    padding: 12px 25px !important;
+    font-weight: 700;
+    border-radius: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+a.call-btn:hover { background-color: #333 !important; }
+
+/* Navigation Menu */
+.navbar { padding: 0; }
+ul.navbar-nav > li > a {
+    color: #fff !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 25px 15px !important;
+    display: block;
+}
+ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
+.navbar-toggler { background: #ffb600; padding: 8px; margin: 10px 0; }
+
+/* Dropdowns */
+.dropdown-menu { 
+    background: #fff; border-top: 3px solid #ffb600; border-radius: 0; padding: 0; 
+    position: absolute; top: 100%; left: 0; z-index: 1000; display: none; min-width: 220px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.dropdown-menu.show { display: block; }
+.dropdown-menu li a { 
+    padding: 12px 20px; border-bottom: 1px solid #eee; color: #333 !important; 
+    font-size: 13px; font-weight: 600; 
+}
+.dropdown-menu li a:hover { color: #ffb600 !important; background: none; }
+
+
+/* =========================================
+   3. SLIDER (FIXED FOR VISIBILITY)
+   ========================================= */
+.banner-carousel .banner-carousel-item { 
+    height: 700px; 
+    background-size: cover; 
+    background-position: center; 
+    position: relative; 
+}
+/* Force Text Container to Top */
+.slider-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 9999 !important; /* Highest Layer */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none; /* Let swipes pass through */
+}
+/* Enable Clicks on Text/Buttons */
+.slider-content * { 
+    pointer-events: auto !important; 
+    position: relative;
+    z-index: 10000;
+}
+
+.slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
+.slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block;}
+.slider.btn { margin-right: 10px; }
+.slider.btn.border { border: 2px solid #ffb600; background: transparent; }
+.slider.btn.border:hover { background: #ffb600; color: #fff; }
+
+
+/* =========================================
+   4. MOBILE LAYOUT (MAX WIDTH 991px)
+   ========================================= */
+@media (max-width: 991px) {
+    
+    /* 1. HEADER FLEX LAYOUT (Logo Left / Button Right) */
+    .header-one .logo-area .row {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100%;
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    /* Logo */
+    .header-one .logo {
+        flex: 0 0 auto;
+        width: auto;
+        text-align: left;
+        margin: 0; padding: 0;
+    }
+    header .logo img { max-height: 70px !important; } /* Smaller on mobile */
+
+    /* Right Side (Button Wrapper) */
+    .header-one .header-right {
+        flex: 0 0 auto;
+        width: auto;
+        padding: 0;
+        text-align: right;
+    }
+
+    /* HIDE Text Info (Email/Phone) */
+    ul.top-info-box {
+        display: block !important; margin: 0; padding: 0;
+    }
+    ul.top-info-box li { display: none !important; }
+
+    /* SHOW Call Button Only */
+    ul.top-info-box li.header-get-a-quote { 
+        display: block !important; 
+        border: none !important; 
+        margin: 0 !important; 
+        padding: 0 !important; 
+    }
+    /* Smaller Button on Mobile */
+    a.call-btn {
+        font-size: 12px !important;
+        padding: 8px 15px !important;
+    }
+
+    /* 2. MENU FIXES */
+    .navbar-collapse {
+        background: #212121;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 99999;
+        border-top: 1px solid #444;
+    }
+    ul.navbar-nav > li > a { padding: 12px 20px !important; border-bottom: 1px solid #333; }
+    
+    /* 3. SLIDER HEIGHT FIX */
+    .banner-carousel .banner-carousel-item { height: 500px !important; }
+    .slide-title { font-size: 28px; line-height: 36px; }
+    .slide-sub-title { font-size: 18px; margin-bottom: 15px; }
+    .slider.btn { font-size: 12px; padding: 10px 15px; margin-bottom: 10px; }
+}
+
+
+/* =========================================
+   5. FOOTER & MISC
+   ========================================= */
+.footer { background-color: #0d0d0d; color: #999; }
+.footer-main { padding: 80px 0 60px; }
+.footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
+.copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
+
+/* Footer Logo Shadow */
+.footer-logo {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+    -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+    margin-bottom: 25px;
+}
+
+/* Service Boxes */
+.ts-service-box { margin-bottom: 30px; display: flex; }
+.ts-service-box-img { margin-right: 20px; width: 60px; }
+.ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
+.ts-service-box-info h3 a { color: #212121; }
+
+/* Accordion */
+.accordion-group .card { border: none; border-bottom: 1px solid #eee; }
+.accordion-group .card-header .btn { width: 100%; text-align: left; font-weight: 700; text-transform: uppercase; color: #333; text-decoration: none; padding: 15px 0;}
+.accordion-group .card-header .btn:hover { color: #ffb600; }
