@@ -5,14 +5,45 @@
   <title>Virgillo & Nicholson Construction | Vanderbilt, PA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="icon" type="image/png" href="images/logo-1.png">
-  
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/animate-css/animate.css">
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Force Logo Size */
+    header .logo img, .footer-logo { 
+        max-height: 120px !important; 
+        width: auto !important; 
+        display: block; 
+    }
+    /* Force Call Button Style */
+    a.call-btn {
+        background-color: #ffb600 !important;
+        color: #fff !important;
+        padding: 12px 25px !important;
+        font-weight: 700 !important;
+        border-radius: 5px;
+        text-transform: uppercase;
+        display: inline-block !important;
+        text-decoration: none;
+    }
+    /* Mobile Header Layout */
+    @media (max-width: 991px) {
+        .header-one .logo-area .row {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+        .header-one .logo { flex: 0 0 auto !important; }
+        .header-one .header-right { flex: 0 0 auto !important; }
+        .top-info-box li { display: none !important; }
+        .top-info-box li.header-get-a-quote { display: block !important; }
+        header .logo img { max-height: 70px !important; }
+    }
+  </style>
 </head>
 <body>
   <div class="body-inner">
@@ -39,18 +70,16 @@
         <div class="container">
           <div class="logo-area">
               <div class="row align-items-center">
-                <div class="logo col-lg-4 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                     <a class="d-block" href="index.html">
                       <img loading="lazy" src="images/logo-1.png" alt="Virgillo & Nicholson Construction">
                     </a>
                 </div>
-                <div class="col-lg-8 header-right">
+                <div class="col-lg-9 header-right">
                     <ul class="top-info-box">
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Call Us</p><p class="info-box-subtitle">724-255-9526</p></div></div></li>
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Email Us</p><p class="info-box-subtitle">virgilloandnicholsonllc@yahoo.com</p></div></div></li>
-                      <li class="header-get-a-quote">
-                        <a class="btn btn-primary call-btn" href="tel:7242559526">Call Now</a>
-                      </li>
+                      <li class="header-get-a-quote"><a class="call-btn" href="tel:7242559526">Call Now</a></li>
                     </ul>
                 </div>
               </div>
@@ -109,7 +138,7 @@
             <div class="container h-100">
               <div class="row align-items-center h-100">
                   <div class="col-md-12">
-                    <h2 class="slide-title" data-animation-in="slideInDown">Excavation Services</h2>
+                    <h2 class="slide-title-box" data-animation-in="slideInDown">Excavation Services</h2>
                     <h3 class="slide-title" data-animation-in="fadeIn">Precision Site Work</h3>
                     <p data-animation-in="slideInRight"><a href="site-work.html" class="slider btn btn-primary border">Learn More</a></p>
                   </div>
