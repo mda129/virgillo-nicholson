@@ -5,6 +5,7 @@
   <title>Virgillo & Nicholson Construction | Vanderbilt, PA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="icon" type="image/png" href="images/logo-1.png">
+  
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/animate-css/animate.css">
@@ -12,9 +13,9 @@
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <link rel="stylesheet" href="css/style.css">
-  
+
   <style>
-    /* Force Logo Size (Web) */
+    /* 1. FORCE LOGO SIZE (Web) */
     @media (min-width: 992px) {
         header .logo img { 
             max-height: 140px !important; 
@@ -23,7 +24,7 @@
         }
     }
 
-    /* Force Mobile Layout (Logo Left / Button Right) */
+    /* 2. MOBILE HEADER LAYOUT (Logo Left / Button Right) */
     @media (max-width: 991px) {
         .header-one .logo-area .row {
             display: flex !important;
@@ -36,28 +37,54 @@
             flex: 0 0 auto !important; 
             width: auto !important; 
             margin: 0 !important; 
+            padding-left: 10px;
         }
         .header-one .header-right { 
             flex: 0 0 auto !important; 
             width: auto !important; 
             text-align: right !important;
+            padding-right: 10px;
         }
-        /* Hide text info, show button */
+        
+        /* Hide text info */
         .top-info-box { display: block !important; margin: 0 !important; padding: 0 !important; }
         .top-info-box li { display: none !important; }
+        
+        /* Show Button */
         .top-info-box li.header-get-a-quote { display: block !important; margin: 0 !important; }
         
         /* Mobile Logo Size */
-        header .logo img { max-height: 80px !important; }
+        header .logo img { max-height: 80px !important; margin: 0; }
         
         /* Mobile Button Size */
         a.call-btn { padding: 8px 15px !important; font-size: 12px !important; }
+
+        /* Fix Menu Background */
+        .navbar-collapse { background: #333; padding: 10px; margin-top: 10px; }
+    }
+    
+    /* 3. CALL BUTTON STYLE */
+    a.call-btn {
+        background-color: #ffb600 !important;
+        color: #fff !important;
+        padding: 12px 25px;
+        font-weight: 700;
+        border-radius: 5px;
+        text-transform: uppercase;
+        display: inline-block !important;
+        text-decoration: none;
+    }
+    
+    /* 4. FOOTER SHADOW */
+    .footer-logo {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
     }
   </style>
 </head>
 <body>
   <div class="body-inner">
 
+    <!-- TOP BAR -->
     <div id="top-bar" class="top-bar">
         <div class="container">
           <div class="row">
@@ -75,22 +102,26 @@
         </div>
     </div>
 
+    <!-- HEADER -->
     <header id="header" class="header-one">
       <div class="bg-white">
         <div class="container">
           <div class="logo-area">
               <div class="row align-items-center">
+                <!-- WIDENED LOGO COLUMN (col-lg-4) -->
                 <div class="logo col-lg-4 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                     <a class="d-block" href="index.html">
                       <img loading="lazy" src="images/logo-1.png" alt="Virgillo & Nicholson Construction">
                     </a>
                 </div>
+                <!-- SHRUNK INFO COLUMN (col-lg-8) -->
                 <div class="col-lg-8 header-right">
                     <ul class="top-info-box">
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Call Us</p><p class="info-box-subtitle">724-255-9526</p></div></div></li>
                       <li><div class="info-box"><div class="info-box-content"><p class="info-box-title">Email Us</p><p class="info-box-subtitle">virgilloandnicholsonllc@yahoo.com</p></div></div></li>
                       <li class="header-get-a-quote">
-                        <a class="btn btn-primary call-btn" href="tel:7242559526" style="background-color: #ffb600 !important; color: #fff !important; border-radius: 5px; padding: 12px 25px; display: inline-block;">Call Now</a>
+                        <!-- BUTTON WITH CLASS AND INLINE STYLE -->
+                        <a class="btn btn-primary call-btn" href="tel:7242559526">Call Now</a>
                       </li>
                     </ul>
                 </div>
@@ -128,6 +159,7 @@
       </div>
     </header>
 
+    <!-- SLIDER -->
     <div class="banner-carousel banner-carousel-1 mb-0">
       <div class="banner-carousel-item" style="background-image:url(images/team/owners.jpeg)">
         <div class="slider-content">
@@ -173,6 +205,7 @@
       </div>
     </div>
 
+    <!-- CALL TO ACTION -->
     <section class="call-to-action-box no-padding">
       <div class="container">
         <div class="action-style-box">
@@ -192,6 +225,7 @@
       </div>
     </section>
 
+    <!-- ABOUT SECTION (CORRECT LAYOUT) -->
     <section id="ts-features" class="ts-features">
       <div class="container">
         <div class="row">
@@ -218,7 +252,6 @@
               </div>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
-              <div style="height: 28px;" class="d-none d-lg-block"></div>
               <h3 class="into-sub-title">Our Values</h3>
               <p>We handle any construction work, from small repairs and remodels to custom builds and large-scale commercial projects.</p>
               <div class="accordion accordion-group" id="our-values-accordion">
@@ -242,6 +275,7 @@
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="ts-service-area" class="ts-service-area pb-0">
       <div class="container">
         <div class="row text-center">
@@ -278,6 +312,7 @@
       </div>
     </section>
 
+    <!-- NEWS -->
     <section id="news" class="news">
       <div class="container">
         <div class="row text-center">
@@ -304,7 +339,8 @@
           <div class="row justify-content-between">
             <div class="col-lg-4 col-md-6 footer-widget footer-about">
               <h3 class="widget-title">About Us</h3>
-              <img loading="lazy" width="200px" class="footer-logo" src="images/logo-1.png" alt="Virgillo & Nicholson" style="filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)); -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));">
+              <!-- FOOTER LOGO -->
+              <img loading="lazy" width="200px" class="footer-logo" src="images/logo-1.png" alt="Virgillo & Nicholson">
               <p>Virgillo & Nicholson Construction LLC is a fully insured, family-owned company serving Fayette, Washington, Greene, Beaver, Butler, Somerset, Allegheny, and Westmoreland counties.</p>
               <div class="footer-social"><ul><li><a href="https://www.facebook.com/profile.php?id=61580240711288" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li></ul></div>
             </div>
