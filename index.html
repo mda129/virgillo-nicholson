@@ -5,32 +5,28 @@
   <title>Virgillo & Nicholson Construction | Vanderbilt, PA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="icon" type="image/png" href="images/logo-1.png">
+  
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/animate-css/animate.css">
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Force Logo Size */
-    header .logo img, .footer-logo { 
+  <link rel="stylesheet" href="css/style.css?v=3"> <style>
+    /* 1. Force Logo Size (Web & Mobile) */
+    header .logo img { 
         max-height: 120px !important; 
         width: auto !important; 
-        display: block; 
+        padding: 5px 0;
     }
-    /* Force Call Button Style */
-    a.call-btn {
-        background-color: #ffb600 !important;
-        color: #fff !important;
-        padding: 12px 25px !important;
-        font-weight: 700 !important;
-        border-radius: 5px;
-        text-transform: uppercase;
-        display: inline-block !important;
-        text-decoration: none;
+    
+    /* 2. Force Footer Shadow */
+    .footer-logo {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+        -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
     }
-    /* Mobile Header Layout */
+
+    /* 3. Mobile Header Layout */
     @media (max-width: 991px) {
         .header-one .logo-area .row {
             display: flex !important;
@@ -39,10 +35,30 @@
         }
         .header-one .logo { flex: 0 0 auto !important; }
         .header-one .header-right { flex: 0 0 auto !important; }
+        
+        .logo img { max-height: 80px !important; margin: 0 auto; }
+        
         .top-info-box li { display: none !important; }
-        .top-info-box li.header-get-a-quote { display: block !important; }
-        header .logo img { max-height: 70px !important; }
+        .top-info-box li.header-get-a-quote { display: block !important; margin: 0; }
+        .navbar-collapse { background: #333; padding: 10px; }
     }
+
+    /* 4. Call Button Style */
+    .call-btn { 
+        background: #ffb600 !important; 
+        color: #fff !important; 
+        padding: 10px 20px !important; 
+        font-weight: bold; 
+        border-radius: 5px; 
+        text-transform: uppercase; 
+        display: inline-block !important; 
+        text-decoration: none !important;
+    }
+    .call-btn:hover { background: #333 !important; color: #ffb600 !important; }
+
+    /* 5. Fix Mobile Slider Buttons */
+    .slider-content { pointer-events: none; z-index: 999; }
+    .slider-content .btn, .slider-content a { pointer-events: auto; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -316,7 +332,17 @@
     <script src="plugins/colorbox/jquery.colorbox.js"></script>
     <script src="plugins/shuffle/shuffle.min.js" defer></script>
     <script src="js/script.js"></script>
-    <script>$(document).ready(function(){window.onpageshow=function(event){if(event.persisted){$('.banner-carousel').slick('setPosition');}};});</script>
+    
+    <script>
+      $(document).ready(function(){
+          window.onpageshow = function(event) {
+              if (event.persisted) {
+                  $('.banner-carousel').slick('setPosition');
+              }
+          };
+      });
+    </script>
+
   </div>
 </body>
 </html>
