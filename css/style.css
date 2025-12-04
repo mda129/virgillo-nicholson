@@ -207,13 +207,23 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
 .footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
 .copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
 
-/* Footer Logo Shadow */
-.footer-logo {
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
-    -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
-    margin-bottom: 25px;
+/* FORCE Logo Size (Web & Mobile) */
+html body header .logo img, 
+html body .footer-logo {
+    max-height: 120px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 5px 0;
+    display: block;
 }
 
+/* FORCE Footer Shadow */
+html body footer .footer-logo {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+    -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) !important;
+    opacity: 1 !important;
+    margin-bottom: 25px;
+}
 /* Service Boxes */
 .ts-service-box { margin-bottom: 30px; display: flex; }
 .ts-service-box-img { margin-right: 20px; width: 60px; }
