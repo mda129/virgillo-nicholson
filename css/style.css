@@ -26,7 +26,7 @@ section, .section-padding { padding: 70px 0; position: relative; }
 .bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
 
 /* =========================================
-   2. HEADER & NAVIGATION
+   2. HEADER & NAVIGATION (FIXED)
    ========================================= */
 .top-bar { padding: 8px 0; background: #ebebeb; }
 ul.top-info li { display: inline-block; padding-right: 15px; }
@@ -37,8 +37,13 @@ ul.top-info li i { color: #ffb600; margin-right: 5px; }
 .header-one, .site-navigation { background: #23282d; }
 .header-one .logo-area { padding: 20px 0; background: #fff; }
 
-/* Logo Sizing (Force Large on Desktop) */
-header .logo img { max-height: 120px; width: auto; display: block; }
+/* LOGO SIZING (Universal Fix) */
+header .logo img, .footer-logo { 
+    max-height: 120px !important; 
+    width: auto !important; 
+    display: block; 
+    padding: 5px 0;
+}
 
 /* Header Right Info */
 ul.top-info-box { float: right; display: flex; align-items: center; }
@@ -47,18 +52,19 @@ ul.top-info-box li:last-child { border: 0; margin: 0; padding: 0; }
 .info-box-title { font-size: 14px; margin-bottom: 5px; }
 .info-box-subtitle { font-weight: 700; color: #111; margin: 0; }
 
-/* CALL BUTTON (Yellow) */
+/* CALL BUTTON STYLE (Universal Fix) */
 a.call-btn {
-    background-color: #ffb600;
+    background-color: #ffb600 !important;
     color: #fff !important;
-    padding: 12px 25px;
+    padding: 12px 25px !important;
     font-weight: 700;
     border-radius: 5px;
     text-transform: uppercase;
     display: inline-block;
     text-decoration: none;
+    white-space: nowrap;
 }
-a.call-btn:hover { background-color: #333; }
+a.call-btn:hover { background-color: #333 !important; }
 
 /* Navigation Menu */
 .navbar { padding: 0; }
@@ -88,7 +94,7 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
 
 
 /* =========================================
-   3. SLIDER (FIXED FOR MOBILE)
+   3. SLIDER (FIXED FOR VISIBILITY)
    ========================================= */
 .banner-carousel .banner-carousel-item { 
     height: 700px; 
@@ -102,11 +108,17 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-    z-index: 20; /* Higher than background */
+    z-index: 9999 !important; /* Highest Layer */
+    opacity: 1 !important;
+    visibility: visible !important;
     pointer-events: none; /* Let swipes pass through */
 }
 /* Enable Clicks on Text/Buttons */
-.slider-content .container * { pointer-events: auto; }
+.slider-content * { 
+    pointer-events: auto !important; 
+    position: relative;
+    z-index: 10000;
+}
 
 .slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
 .slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block;}
@@ -122,10 +134,10 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
     
     /* 1. HEADER FLEX LAYOUT (Logo Left / Button Right) */
     .header-one .logo-area .row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
         width: 100%;
         margin: 0;
         padding: 0 15px;
@@ -138,29 +150,33 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
         text-align: left;
         margin: 0; padding: 0;
     }
-    header .logo img { max-height: 70px; } /* Smaller on mobile */
+    header .logo img { max-height: 70px !important; } /* Smaller on mobile */
 
     /* Right Side (Button Wrapper) */
     .header-one .header-right {
         flex: 0 0 auto;
         width: auto;
         padding: 0;
+        text-align: right;
     }
 
     /* HIDE Text Info (Email/Phone) */
-    ul.top-info-box li { display: none; }
+    ul.top-info-box {
+        display: block !important; margin: 0; padding: 0;
+    }
+    ul.top-info-box li { display: none !important; }
 
     /* SHOW Call Button Only */
     ul.top-info-box li.header-get-a-quote { 
-        display: block; 
-        border: none; 
-        margin: 0; 
-        padding: 0; 
+        display: block !important; 
+        border: none !important; 
+        margin: 0 !important; 
+        padding: 0 !important; 
     }
     /* Smaller Button on Mobile */
     a.call-btn {
-        font-size: 12px;
-        padding: 8px 15px;
+        font-size: 12px !important;
+        padding: 8px 15px !important;
     }
 
     /* 2. MENU FIXES */
@@ -170,13 +186,13 @@ ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !im
         top: 100%;
         left: 0;
         width: 100%;
-        z-index: 999;
+        z-index: 99999;
         border-top: 1px solid #444;
     }
     ul.navbar-nav > li > a { padding: 12px 20px !important; border-bottom: 1px solid #333; }
     
     /* 3. SLIDER HEIGHT FIX */
-    .banner-carousel .banner-carousel-item { height: 450px; }
+    .banner-carousel .banner-carousel-item { height: 500px !important; }
     .slide-title { font-size: 28px; line-height: 36px; }
     .slide-sub-title { font-size: 18px; margin-bottom: 15px; }
     .slider.btn { font-size: 12px; padding: 10px 15px; margin-bottom: 10px; }
