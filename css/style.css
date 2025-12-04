@@ -1,22 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
 
 /* =========================================
-   1. CORE DEFAULTS (Your Original)
+   1. CORE DEFAULTS
    ========================================= */
 body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
 a { color: inherit; transition: 0.2s ease; text-decoration: none; }
-a:hover { color: #ffb600; text-decoration: none; } /* Updated hover to yellow */
+a:hover { color: #000; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
-img { max-width: 100%; height: auto; }
 
 /* Buttons */
-.btn-primary, .btn-dark, .btn { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; display: inline-block; cursor: pointer; }
+.btn-primary, .btn-dark { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; display: inline-block; }
 .btn-primary { background: #ffb600; }
 .btn-dark { background: #23282d; }
 .btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
-.btn-primary.border { border: 2px solid #ffb600; background: transparent; color: #fff; } /* Missing Class Restored */
-.btn-primary.border:hover { background: #ffb600; color: #fff; }
 
 /* Layout Helpers */
 section, .section-padding { padding: 70px 0; position: relative; }
@@ -29,7 +26,7 @@ section, .section-padding { padding: 70px 0; position: relative; }
 .bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
 
 /* =========================================
-   2. HEADER & NAVIGATION
+   2. HEADER & NAVIGATION (FIXED)
    ========================================= */
 .top-bar { padding: 8px 0; background: #ebebeb; }
 ul.top-info li { display: inline-block; padding-right: 15px; }
@@ -40,118 +37,22 @@ ul.top-info li i { color: #ffb600; margin-right: 5px; }
 .header-one, .site-navigation { background: #23282d; }
 .header-one .logo-area { padding: 20px 0; background: #fff; }
 
-/* Header Info */
+/* LOGO SIZING (Universal Fix) */
+header .logo img, .footer-logo { 
+    max-height: 120px !important; 
+    width: auto !important; 
+    display: block; 
+    padding: 5px 0;
+}
+
+/* Header Right Info */
 ul.top-info-box { float: right; display: flex; align-items: center; }
 ul.top-info-box li { border-right: 1px solid #dedede; padding-right: 25px; margin-right: 25px; }
 ul.top-info-box li:last-child { border: 0; margin: 0; padding: 0; }
 .info-box-title { font-size: 14px; margin-bottom: 5px; }
 .info-box-subtitle { font-weight: 700; color: #111; margin: 0; }
 
-/* Navigation */
-.navbar { padding: 0; }
-ul.navbar-nav > li > a { color: #fff !important; font-weight: 700; text-transform: uppercase; font-size: 14px; padding: 25px 15px !important; display: block; }
-ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
-.navbar-toggler { background: #ffb600; padding: 8px; margin: 10px 0; }
-
-/* Dropdowns */
-.dropdown-menu { background: #fff; border-top: 3px solid #ffb600; border-radius: 0; padding: 0; position: absolute; top: 100%; left: 0; z-index: 1000; display: none; min-width: 220px; box-shadow: 0 6px 12px rgba(0,0,0,.175); }
-.dropdown-menu.show { display: block; }
-.dropdown-menu li a { padding: 12px 20px; border-bottom: 1px solid #eee; color: #333 !important; font-size: 13px; font-weight: 600; }
-.dropdown-menu li a:hover { color: #ffb600 !important; background: none; }
-
-
-/* =========================================
-   3. SLIDER STYLES
-   ========================================= */
-.banner-carousel .banner-carousel-item { height: 700px; background-size: cover; background-position: center; position: relative; }
-
-/* Text Container */
-.slider-content {
-    position: absolute; top: 50%; width: 100%; transform: translateY(-50%);
-    z-index: 9999 !important; /* Fixed Z-Index */
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: none; 
-}
-.slider-content * { pointer-events: auto !important; }
-
-/* Slider Typography */
-.slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
-.slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block; }
-.slider.btn { margin-right: 10px; }
-
-/* --- RESTORED MISSING STYLES (This fixes the "Different Look") --- */
-.slide-title-box { display: inline-block; padding: 10px 25px; background: rgba(33, 33, 33, 0.8); color: #ffb600; font-size: 40px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; border-left: 5px solid #ffb600; }
-
-/* --- RESTORED ARROWS (This fixes the "Wrong Spot") --- */
-.banner-carousel .slick-arrow {
-    position: absolute; top: 50%; z-index: 10; 
-    background: rgba(0,0,0,0.5); width: 50px; height: 50px; 
-    line-height: 50px; text-align: center; color: #fff; border: 0; 
-    transform: translateY(-50%); cursor: pointer; transition: 0.3s;
-}
-.banner-carousel .slick-arrow:hover { background: #ffb600; }
-.banner-carousel .slick-prev { left: 0; }
-.banner-carousel .slick-next { right: 0; }
-
-
-/* =========================================
-   4. CONTENT BLOCKS (Restored Missing Parts)
-   ========================================= */
-/* About Us Styling */
-.ts-intro { margin-bottom: 30px; }
-.into-title { font-size: 32px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: -1px; }
-.into-sub-title { font-size: 16px; color: #ffb600; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; letter-spacing: 1px; }
-
-/* Call to Action Styling */
-.call-to-action-box { background: #23282d; padding: 40px 0; }
-.action-style-box { background: #23282d; color: #fff; border-left: 3px solid #ffb600; padding: 20px; }
-.action-title { font-size: 24px; color: #fff; margin: 0; }
-
-/* Service Boxes */
-.ts-service-box { margin-bottom: 30px; display: flex; }
-.ts-service-box-img { margin-right: 20px; width: 60px; }
-.ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
-.ts-service-box-info h3 a { color: #212121; }
-
-/* Accordion */
-.accordion-group .card { border: none; border-bottom: 1px solid #eee; }
-.accordion-group .card-header .btn { width: 100%; text-align: left; font-weight: 700; text-transform: uppercase; color: #333; text-decoration: none; padding: 15px 0;}
-.accordion-group .card-header .btn:hover { color: #ffb600; }
-
-
-/* =========================================
-   5. FOOTER & MISC
-   ========================================= */
-.footer { background-color: #0d0d0d; color: #999; }
-.footer-main { padding: 80px 0 60px; }
-.footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
-.copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
-
-/* Footer Logo Glow Fix */
-.footer-logo {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 3px #fff);
-    -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 3px #fff);
-    margin-bottom: 25px;
-    max-height: 120px !important;
-    width: auto !important; 
-    display: block;
-}
-
-
-/* =========================================
-   6. GLOBAL OVERRIDES (THE REQUESTED FIXES)
-   ========================================= */
-
-/* BIGGER HEADER LOGO (Desktop) */
-header .logo img { 
-    max-height: 160px !important; /* Increased Size */
-    width: auto !important; 
-    padding: 5px 0;
-    transition: 0.3s ease;
-}
-
-/* Call Button - Universal Look */
+/* CALL BUTTON STYLE (Universal Fix) */
 a.call-btn {
     background-color: #ffb600 !important;
     color: #fff !important;
@@ -165,45 +66,228 @@ a.call-btn {
 }
 a.call-btn:hover { background-color: #333 !important; }
 
-/* MOBILE LAYOUT & FIXES (Max Width 991px) */
+/* Navigation Menu */
+.navbar { padding: 0; }
+ul.navbar-nav > li > a {
+    color: #fff !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 25px 15px !important;
+    display: block;
+}
+ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
+.navbar-toggler { background: #ffb600; padding: 8px; margin: 10px 0; }
+
+/* Dropdowns */
+.dropdown-menu { 
+    background: #fff; border-top: 3px solid #ffb600; border-radius: 0; padding: 0; 
+    position: absolute; top: 100%; left: 0; z-index: 1000; display: none; min-width: 220px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.dropdown-menu.show { display: block; }
+.dropdown-menu li a { 
+    padding: 12px 20px; border-bottom: 1px solid #eee; color: #333 !important; 
+    font-size: 13px; font-weight: 600; 
+}
+.dropdown-menu li a:hover { color: #ffb600 !important; background: none; }
+
+
+/* =========================================
+   3. SLIDER (FIXED FOR VISIBILITY)
+   ========================================= */
+.banner-carousel .banner-carousel-item { 
+    height: 700px; 
+    background-size: cover; 
+    background-position: center; 
+    position: relative; 
+}
+/* Force Text Container to Top */
+.slider-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 9999 !important; /* Highest Layer */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none; /* Let swipes pass through */
+}
+/* Enable Clicks on Text/Buttons */
+.slider-content * { 
+    pointer-events: auto !important; 
+    position: relative;
+    z-index: 10000;
+}
+
+.slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
+.slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block;}
+.slider.btn { margin-right: 10px; }
+.slider.btn.border { border: 2px solid #ffb600; background: transparent; }
+.slider.btn.border:hover { background: #ffb600; color: #fff; }
+
+
+/* =========================================
+   4. MOBILE LAYOUT (MAX WIDTH 991px)
+   ========================================= */
 @media (max-width: 991px) {
-    /* Header Layout */
+    
+    /* 1. HEADER FLEX LAYOUT (Logo Left / Button Right) */
     .header-one .logo-area .row {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
-        flex-wrap: nowrap !important;
-        padding: 10px 15px;
+        width: 100%;
+        margin: 0;
+        padding: 0 15px;
     }
-    
-    /* Logo Sizing */
-    .header-one .logo { flex: 0 1 auto !important; max-width: 65%; }
-    header .logo img { max-height: 70px !important; }
 
-    /* Button Area */
-    .header-one .header-right { flex: 0 0 auto !important; width: auto !important; padding: 0; }
-    ul.top-info-box { display: block !important; margin: 0 !important; }
+    /* Logo */
+    .header-one .logo {
+        flex: 0 0 auto;
+        width: auto;
+        text-align: left;
+        margin: 0; padding: 0;
+    }
+    header .logo img { max-height: 70px !important; } /* Smaller on mobile */
+
+    /* Right Side (Button Wrapper) */
+    .header-one .header-right {
+        flex: 0 0 auto;
+        width: auto;
+        padding: 0;
+        text-align: right;
+    }
+
+    /* HIDE Text Info (Email/Phone) */
+    ul.top-info-box {
+        display: block !important; margin: 0; padding: 0;
+    }
     ul.top-info-box li { display: none !important; }
-    ul.top-info-box li.header-get-a-quote { display: block !important; }
-    
-    /* Small Button for Mobile */
+
+    /* SHOW Call Button Only */
+    ul.top-info-box li.header-get-a-quote { 
+        display: block !important; 
+        border: none !important; 
+        margin: 0 !important; 
+        padding: 0 !important; 
+    }
+    /* Smaller Button on Mobile */
     a.call-btn {
-        font-size: 11px !important;
-        padding: 8px 12px !important;
-        margin: 0 !important;
+        font-size: 12px !important;
+        padding: 8px 15px !important;
     }
 
-    /* Mobile Menu */
+    /* 2. MENU FIXES */
     .navbar-collapse {
         background: #212121;
-        position: absolute; top: 100%; left: 0; width: 100%; z-index: 99999;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 99999;
         border-top: 1px solid #444;
     }
+    ul.navbar-nav > li > a { padding: 12px 20px !important; border-bottom: 1px solid #333; }
     
-    /* Slider Mobile Height */
+    /* 3. SLIDER HEIGHT FIX */
     .banner-carousel .banner-carousel-item { height: 500px !important; }
     .slide-title { font-size: 28px; line-height: 36px; }
     .slide-sub-title { font-size: 18px; margin-bottom: 15px; }
     .slider.btn { font-size: 12px; padding: 10px 15px; margin-bottom: 10px; }
+}
+
+
+/* =========================================
+   5. FOOTER & MISC
+   ========================================= */
+.footer { background-color: #0d0d0d; color: #999; }
+.footer-main { padding: 80px 0 60px; }
+.footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
+.copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
+
+/* Footer Logo Shadow */
+.footer-logo {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+    -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+    margin-bottom: 25px;
+}
+
+/* Service Boxes */
+.ts-service-box { margin-bottom: 30px; display: flex; }
+.ts-service-box-img { margin-right: 20px; width: 60px; }
+.ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
+.ts-service-box-info h3 a { color: #212121; }
+
+/* Accordion */
+.accordion-group .card { border: none; border-bottom: 1px solid #eee; }
+.accordion-group .card-header .btn { width: 100%; text-align: left; font-weight: 700; text-transform: uppercase; color: #333; text-decoration: none; padding: 15px 0;}
+.accordion-group .card-header .btn:hover { color: #ffb600; }
+
+/* =======================================================
+   VIRGILLO & NICHOLSON - FINAL OVERRIDES
+   PASTE AT THE VERY BOTTOM OF YOUR ORIGINAL STYLE.CSS
+   ======================================================= */
+
+/* 1. FORCE HEADER LOGO BIGGER (Desktop) */
+header .logo img { 
+  max-height: 160px !important; 
+  width: auto !important; 
+  padding: 5px 0;
+}
+
+/* 2. FIX FOOTER LOGO (White Box Style) */
+/* You liked this one - it adds the white box behind the logo */
+.footer-logo {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  padding: 10px 15px !important;
+  border-radius: 6px !important;
+  margin-bottom: 25px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
+  display: inline-block;
+  max-height: 80px !important;
+  width: auto !important;
+}
+
+/* 3. FIX SLIDER TEXT VISIBILITY */
+/* Forces text to stay visible and sit on top of images */
+.slider-content {
+  z-index: 9999 !important; 
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none; 
+}
+.slider-content * {
+  pointer-events: auto !important;
+}
+
+/* 4. FIX MOBILE HEADER & BUTTON (Universal) */
+@media (max-width: 991px) {
+  /* Force Layout: Logo Left | Button Right */
+  .header-one .logo-area .row {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+  }
+
+  /* Resize Mobile Logo */
+  .header-one .logo { flex: 0 1 auto !important; max-width: 70%; }
+  header .logo img { max-height: 70px !important; }
+
+  /* Hide Text Info, Show Button */
+  .header-one .header-right { flex: 0 0 auto !important; width: auto !important; padding: 0; }
+  ul.top-info-box { display: block !important; margin: 0 !important; }
+  ul.top-info-box li { display: none !important; }
+  ul.top-info-box li.header-get-a-quote { display: block !important; }
+  
+  /* Style the Mobile Button */
+  a.call-btn {
+      display: inline-block !important;
+      font-size: 12px !important;
+      padding: 10px 15px !important;
+      margin: 0 !important;
+  }
 }
