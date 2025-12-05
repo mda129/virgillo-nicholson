@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800|Open+Sans:400,400i,600,600i,700,700i,800&display=swap);
 
-/* =========================================
-   1. CORE DEFAULTS
-   ========================================= */
+/* 1. CORE DEFAULTS */
 body { background: #fff; color: #555; font-family: "Open Sans", sans-serif; line-height: 26px; font-size: 15px; margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, h6 { color: #212121; font-weight: 700; font-family: "Montserrat", sans-serif; }
 a { color: inherit; transition: 0.2s ease; text-decoration: none; }
@@ -10,10 +8,18 @@ a:hover { color: #000; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
 
 /* Buttons */
-.btn-primary, .btn-dark { border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; text-transform: uppercase; color: #fff; font-family: "Montserrat", sans-serif; transition: 350ms; font-size: 14px; display: inline-block; }
-.btn-primary { background: #ffb600; }
+.btn-primary, .btn-dark, a.call-btn { 
+    border: 0; border-radius: 3px; padding: 12px 20px 10px; font-weight: 700; 
+    text-transform: uppercase; color: #fff !important; font-family: "Montserrat", sans-serif; 
+    transition: 350ms; font-size: 14px; display: inline-block; text-decoration: none;
+}
+.btn-primary, a.call-btn { background: #ffb600; }
 .btn-dark { background: #23282d; }
-.btn-primary:hover, .btn-dark:hover { background: #111; color: #fff; }
+
+/* Fix Double Tap on Mobile (Only hover on devices with mice) */
+@media (hover: hover) {
+    .btn-primary:hover, .btn-dark:hover, a.call-btn:hover { background: #111; color: #fff !important; }
+}
 
 /* Layout Helpers */
 section, .section-padding { padding: 70px 0; position: relative; }
@@ -25,9 +31,7 @@ section, .section-padding { padding: 70px 0; position: relative; }
 .bg-overlay .container { position: relative; z-index: 1; }
 .bg-overlay:after { background-color: rgba(0, 0, 0, 0.8); z-index: 0; position: absolute; content: ""; width: 100%; height: 100%; top: 0; left: 0; }
 
-/* =========================================
-   2. HEADER & NAVIGATION (FIXED)
-   ========================================= */
+/* 2. HEADER & NAVIGATION */
 .top-bar { padding: 8px 0; background: #ebebeb; }
 ul.top-info li { display: inline-block; padding-right: 15px; }
 ul.top-info li i { color: #ffb600; margin-right: 5px; }
@@ -37,12 +41,22 @@ ul.top-info li i { color: #ffb600; margin-right: 5px; }
 .header-one, .site-navigation { background: #23282d; }
 .header-one .logo-area { padding: 20px 0; background: #fff; }
 
-/* LOGO SIZING (Universal Fix) */
+/* Logo Sizing (Force Large) */
 header .logo img, .footer-logo { 
     max-height: 120px !important; 
     width: auto !important; 
     display: block; 
     padding: 5px 0;
+}
+
+/* Remove background box, bring back shadow */
+.footer-logo {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+  -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+  margin-bottom: 25px;
 }
 
 /* Header Right Info */
@@ -52,242 +66,222 @@ ul.top-info-box li:last-child { border: 0; margin: 0; padding: 0; }
 .info-box-title { font-size: 14px; margin-bottom: 5px; }
 .info-box-subtitle { font-weight: 700; color: #111; margin: 0; }
 
-/* CALL BUTTON STYLE (Universal Fix) */
-a.call-btn {
-    background-color: #ffb600 !important;
-    color: #fff !important;
-    padding: 12px 25px !important;
-    font-weight: 700;
-    border-radius: 5px;
-    text-transform: uppercase;
-    display: inline-block;
-    text-decoration: none;
-    white-space: nowrap;
-}
-a.call-btn:hover { background-color: #333 !important; }
-
 /* Navigation Menu */
 .navbar { padding: 0; }
-ul.navbar-nav > li > a {
-    color: #fff !important;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 25px 15px !important;
-    display: block;
-}
+ul.navbar-nav > li > a { color: #fff !important; font-weight: 700; text-transform: uppercase; font-size: 14px; padding: 25px 15px !important; display: block; }
 ul.navbar-nav > li:hover > a, ul.navbar-nav > li.active > a { color: #ffb600 !important; }
 .navbar-toggler { background: #ffb600; padding: 8px; margin: 10px 0; }
 
-/* Dropdowns */
-.dropdown-menu { 
-    background: #fff; border-top: 3px solid #ffb600; border-radius: 0; padding: 0; 
-    position: absolute; top: 100%; left: 0; z-index: 1000; display: none; min-width: 220px;
-    box-shadow: 0 6px 12px rgba(0,0,0,.175);
-}
-.dropdown-menu.show { display: block; }
-.dropdown-menu li a { 
-    padding: 12px 20px; border-bottom: 1px solid #eee; color: #333 !important; 
-    font-size: 13px; font-weight: 600; 
-}
-.dropdown-menu li a:hover { color: #ffb600 !important; background: none; }
-
-
 /* =========================================
-   3. SLIDER (FIXED FOR VISIBILITY)
+   PREMIUM DROPDOWN MENU STYLE
    ========================================= */
-.banner-carousel .banner-carousel-item { 
-    height: 700px; 
-    background-size: cover; 
-    background-position: center; 
-    position: relative; 
+   .dropdown-menu {
+    border: none;
+    border-top: 3px solid #ffb600;
+    border-radius: 0;
+    padding: 0;
+    min-width: 220px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: #fff;
+    display: none;
+    margin-top: 0;
+    position: absolute;
+    z-index: 1000;
 }
+
+.dropdown-menu li a {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f1f1;
+    color: #333 !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    color: #fff !important;
+    background: #ffb600;
+    padding-left: 25px; /* The "Slide" Effect */
+    text-decoration: none;
+}
+
+/* DESKTOP ONLY: Open on Hover with Animation */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeInUp 0.3s;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 10px, 0); }
+    to { opacity: 1; transform: none; }
+}
+
+/* 3. SLIDER */
+.banner-carousel .banner-carousel-item { height: 700px; background-size: cover; background-position: center; position: relative; }
 /* Force Text Container to Top */
 .slider-content {
     position: absolute;
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-    z-index: 9999 !important; /* Highest Layer */
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: none; /* Let swipes pass through */
+    z-index: 20; 
+    pointer-events: none; 
 }
 /* Enable Clicks on Text/Buttons */
-.slider-content * { 
-    pointer-events: auto !important; 
-    position: relative;
-    z-index: 10000;
-}
+.slider-content .container * { pointer-events: auto; }
 
 .slide-title { font-size: 52px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
 .slide-sub-title { font-size: 24px; color: #fff; font-weight: 700; text-transform: uppercase; margin-bottom: 30px; display: block;}
 .slider.btn { margin-right: 10px; }
-.slider.btn.border { border: 2px solid #ffb600; background: transparent; }
+.slider.btn.border { border: 2px solid #ffb600; background: transparent; color: #fff; }
 .slider.btn.border:hover { background: #ffb600; color: #fff; }
 
-
-/* =========================================
-   4. MOBILE LAYOUT (MAX WIDTH 991px)
-   ========================================= */
-@media (max-width: 991px) {
-    
-    /* 1. HEADER FLEX LAYOUT (Logo Left / Button Right) */
-    .header-one .logo-area .row {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        width: 100%;
-        margin: 0;
-        padding: 0 15px;
-    }
-
-    /* Logo */
-    .header-one .logo {
-        flex: 0 0 auto;
-        width: auto;
-        text-align: left;
-        margin: 0; padding: 0;
-    }
-    header .logo img { max-height: 70px !important; } /* Smaller on mobile */
-
-    /* Right Side (Button Wrapper) */
-    .header-one .header-right {
-        flex: 0 0 auto;
-        width: auto;
-        padding: 0;
-        text-align: right;
-    }
-
-    /* HIDE Text Info (Email/Phone) */
-    ul.top-info-box {
-        display: block !important; margin: 0; padding: 0;
-    }
-    ul.top-info-box li { display: none !important; }
-
-    /* SHOW Call Button Only */
-    ul.top-info-box li.header-get-a-quote { 
-        display: block !important; 
-        border: none !important; 
-        margin: 0 !important; 
-        padding: 0 !important; 
-    }
-    /* Smaller Button on Mobile */
-    a.call-btn {
-        font-size: 12px !important;
-        padding: 8px 15px !important;
-    }
-
-    /* 2. MENU FIXES */
-    .navbar-collapse {
-        background: #212121;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        z-index: 99999;
-        border-top: 1px solid #444;
-    }
-    ul.navbar-nav > li > a { padding: 12px 20px !important; border-bottom: 1px solid #333; }
-    
-    /* 3. SLIDER HEIGHT FIX */
-    .banner-carousel .banner-carousel-item { height: 500px !important; }
-    .slide-title { font-size: 28px; line-height: 36px; }
-    .slide-sub-title { font-size: 18px; margin-bottom: 15px; }
-    .slider.btn { font-size: 12px; padding: 10px 15px; margin-bottom: 10px; }
+/* Slider Arrows */
+.banner-carousel .carousel-control {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+    background: rgba(0,0,0,0.3); color: #fff; width: 50px; height: 50px;
+    line-height: 50px; text-align: center; border: none; cursor: pointer; transition: 0.3s;
 }
+.banner-carousel .carousel-control:hover { background: #ffb600; }
+.banner-carousel .carousel-control.left { left: 20px; }
+.banner-carousel .carousel-control.right { right: 20px; }
 
 
-/* =========================================
-   5. FOOTER & MISC
-   ========================================= */
+/* 4. SECTIONS */
+.call-to-action-box { margin-top: -50px; position: relative; z-index: 2; }
+.action-style-box { background: #ffb600; padding: 40px; border-radius: 3px; }
+.action-title { color: #fff; margin: 0; font-size: 20px; font-weight: 700; text-transform: uppercase; }
+
+.ts-service-box { margin-bottom: 30px; display: flex; }
+.ts-service-box .ts-service-icon { margin-right: 20px; }
+.ts-service-box .ts-service-icon i { font-size: 36px; color: #ffb600; }
+.ts-service-box-content h3 { font-size: 18px; margin-bottom: 10px; text-transform: uppercase; }
+.ts-intro { margin-bottom: 40px; }
+
+/* Accordion */
+.accordion-group .card { border: none; border-bottom: 1px solid #eee; margin-bottom: 5px; }
+.accordion-group .card-header { background: transparent; padding: 0; border: none; }
+.accordion-group .card-header .btn {
+    width: 100%; text-align: left; font-weight: 700; text-transform: uppercase; 
+    color: #333; text-decoration: none; padding: 15px 0; position: relative;
+}
+.accordion-group .card-header .btn:hover { color: #ffb600; }
+.accordion-group .card-header .btn[aria-expanded="true"] { color: #ffb600; }
+.accordion-group .card-header .btn:after {
+    font-family: "Font Awesome 5 Free"; content: "\f107"; font-weight: 900; 
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+}
+.accordion-group .card-header .btn[aria-expanded="true"]:after { content: "\f106"; }
+
+/* 5. FOOTER */
 .footer { background-color: #0d0d0d; color: #999; }
 .footer-main { padding: 80px 0 60px; }
 .footer .widget-title { font-size: 16px; font-weight: 700; margin: 0 0 30px; padding-left: 15px; text-transform: uppercase; color: #fff; border-left: 3px solid #ffb600; }
 .copyright { background: #ffb600; color: #111; padding: 25px 0; font-weight: 600; font-size: 12px; }
 
-/* Footer Logo Shadow */
-.footer-logo {
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
-    -webkit-filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
-    margin-bottom: 25px;
-}
-
-/* Service Boxes */
-.ts-service-box { margin-bottom: 30px; display: flex; }
-.ts-service-box-img { margin-right: 20px; width: 60px; }
-.ts-service-box-info h3 { font-size: 16px; margin: 0 0 10px; }
-.ts-service-box-info h3 a { color: #212121; }
-
-/* Accordion */
-.accordion-group .card { border: none; border-bottom: 1px solid #eee; }
-.accordion-group .card-header .btn { width: 100%; text-align: left; font-weight: 700; text-transform: uppercase; color: #333; text-decoration: none; padding: 15px 0;}
-.accordion-group .card-header .btn:hover { color: #ffb600; }
-
-/* =======================================================
-   VIRGILLO & NICHOLSON - FINAL OVERRIDES
-   PASTE AT THE VERY BOTTOM OF YOUR ORIGINAL STYLE.CSS
-   ======================================================= */
-
-/* 1. FORCE HEADER LOGO BIGGER (Desktop) */
-header .logo img { 
-  max-height: 160px !important; 
-  width: auto !important; 
-  padding: 5px 0;
-}
-
-/* 2. FIX FOOTER LOGO (White Box Style) */
-/* You liked this one - it adds the white box behind the logo */
-.footer-logo {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  padding: 10px 15px !important;
-  border-radius: 6px !important;
-  margin-bottom: 25px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
-  display: inline-block;
-  max-height: 80px !important;
-  width: auto !important;
-}
-
-/* 3. FIX SLIDER TEXT VISIBILITY */
-/* Forces text to stay visible and sit on top of images */
-.slider-content {
-  z-index: 9999 !important; 
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: none; 
-}
-.slider-content * {
-  pointer-events: auto !important;
-}
-
-/* 4. FIX MOBILE HEADER & BUTTON (Universal) */
+/* =========================================
+   6. MOBILE FIXES (CRITICAL)
+   ========================================= */
 @media (max-width: 991px) {
-  /* Force Layout: Logo Left | Button Right */
-  .header-one .logo-area .row {
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      flex-wrap: nowrap !important;
-  }
+    /* Force Logo Left / Button Right */
+    .header-one .logo-area .row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100%; margin: 0; padding: 0 15px;
+    }
+    
+    /* Disable Bootstrap Grid Widths */
+    .header-one .logo { 
+        flex: 0 0 auto !important; 
+        width: auto !important; 
+        max-width: 60%;
+        text-align: left; 
+    }
+    header .logo img { max-height: 80px !important; }
 
-  /* Resize Mobile Logo */
-  .header-one .logo { flex: 0 1 auto !important; max-width: 70%; }
-  header .logo img { max-height: 70px !important; }
+    .header-one .header-right { 
+        flex: 0 0 auto !important; 
+        width: auto !important; 
+        padding: 0; 
+        text-align: right;
+    }
+    
+    /* Show Call Button Only */
+    ul.top-info-box { display: block !important; margin: 0; padding: 0; }
+    ul.top-info-box li { display: none !important; }
+    ul.top-info-box li.header-get-a-quote { display: block !important; border: none; margin: 0; padding: 0; }
+    
+    a.call-btn { font-size: 12px !important; padding: 8px 15px !important; }
+    
+    /* Menu Fix */
+    .navbar-collapse {
+        background: #212121;
+        position: absolute; top: 100%; left: 0; width: 100%; z-index: 9999;
+        border-top: 1px solid #444;
+    }
+    .banner-carousel .banner-carousel-item { height: 500px !important; }
+}
+/* =========================================
+   FIX FOR SUB-PAGE BANNERS
+   ========================================= */
+   .banner-area {
+    padding: 180px 0; /* Gives the banner its height */
+    background-size: cover !important; /* Ensures image covers the whole area */
+    background-position: center center !important; /* Centers the image */
+    background-repeat: no-repeat !important;
+    position: relative;
+    z-index: 1;
+}
 
-  /* Hide Text Info, Show Button */
-  .header-one .header-right { flex: 0 0 auto !important; width: auto !important; padding: 0; }
-  ul.top-info-box { display: block !important; margin: 0 !important; }
-  ul.top-info-box li { display: none !important; }
-  ul.top-info-box li.header-get-a-quote { display: block !important; }
-  
-  /* Style the Mobile Button */
-  a.call-btn {
-      display: inline-block !important;
-      font-size: 12px !important;
-      padding: 10px 15px !important;
-      margin: 0 !important;
-  }
+
+
+/* Force Text to White with Strong Drop Shadow */
+.banner-title {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  /* This adds a black outline/shadow to the text so it's readable on any image */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important; 
+}
+
+/* =========================================
+   RESTORE CONTACT PAGE ICONS & BOXES
+   ========================================= */
+
+/* The Box Container */
+.ts-service-box-bg {
+  background: #252525;
+  color: #fff;
+  padding: 30px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+.ts-service-box-bg:hover {
+  transform: translateY(-5px);
+}
+
+/* The Text inside the box */
+.ts-service-box-bg h4, 
+.ts-service-box-bg p {
+  color: #fff !important;
+}
+
+/* The Round Icon */
+.ts-service-icon.icon-round i {
+  background: #ffb600;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  display: inline-block;
 }

@@ -1,3 +1,10 @@
+/**
+ * WEBSITE: https://themefisher.com
+ * TWITTER: https://twitter.com/themefisher
+ * FACEBOOK: https://facebook.com/themefisher
+ * GITHUB: https://github.com/themefisher/
+ */
+
 jQuery(function ($) {
     'use strict';
 
@@ -5,9 +12,11 @@ jQuery(function ($) {
     /* Fixed header
     /* ----------------------------------------------------------- */
     $(window).on('scroll', function () {
+        // fixedHeader on scroll
         function fixedHeader() {
             var headerTopBar = $('.top-bar').outerHeight();
             var headerOneTopSpace = $('.header-one .logo-area').outerHeight();
+
             var headerOneELement = $('.header-one .site-navigation');
 
             if ($(window).scrollTop() > headerTopBar + headerOneTopSpace) {
@@ -19,9 +28,54 @@ jQuery(function ($) {
             }
         }
         fixedHeader();
+
+
+        // Count Up
+        function counter() {
+            var oTop;
+            if ($('.counterUp').length !== 0) {
+                oTop = $('.counterUp').offset().top - window.innerHeight;
+            }
+            if ($(window).scrollTop() > oTop) {
+                $('.counterUp').each(function () {
+                    var $this = $(this),
+                        countTo = $this.attr('data-count');
+                    $({
+                        countNum: $this.text()
+                    }).animate({
+                        countNum: countTo
+                    }, {
+                        duration: 1000,
+                        easing: 'swing',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum);
+                        }
+                    });
+                });
+            }
+        }
+        counter();
+
+
+        // scroll to top btn show/hide
+        function scrollTopBtn() {
+            var scrollToTop = $('#back-to-top'),
+                scroll = $(window).scrollTop();
+            if (scroll >= 50) {
+                scrollToTop.fadeIn();
+            } else {
+                scrollToTop.fadeOut();
+            }
+        }
+        scrollTopBtn();
     });
 
+
     $(document).ready(function () {
+
         // navSearch show/hide
         function navSearch() {
             $('.nav-search').on('click', function () {
@@ -41,11 +95,18 @@ jQuery(function ($) {
                         height: 'toggle'
                     }, 300);
                 });
+
                 var navbarHeight = $('.site-navigation').outerHeight();
                 $('.site-navigation .navbar-collapse').css('max-height', 'calc(100vh - ' + navbarHeight + 'px)');
+                
+                // FIX: Close menu ONLY when clicking a real link (not the "Services" toggle)
+                $('.navbar-nav li a:not(.dropdown-toggle)').on('click', function(){
+                    $('.navbar-collapse').collapse('hide');
+                });
             }
         }
         navbarDropdown();
+
 
         // back to top
         function backToTop() {
@@ -59,10 +120,11 @@ jQuery(function ($) {
         }
         backToTop();
 
-        // banner-carousel (FIXED: Added fade: true)
+
+        // banner-carousel
         function bannerCarouselOne() {
             $('.banner-carousel.banner-carousel-1').slick({
-                fade: true,
+                fade: true, // Prevents "stuck" images on mobile
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 autoplay: true,
@@ -75,6 +137,24 @@ jQuery(function ($) {
             $('.banner-carousel.banner-carousel-1').slickAnimation();
         }
         bannerCarouselOne();
+
+
+        // banner Carousel Two
+        function bannerCarouselTwo() {
+            $('.banner-carousel.banner-carousel-2').slick({
+                fade: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                dots: false,
+                speed: 600,
+                arrows: true,
+                prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>'
+            });
+        }
+        bannerCarouselTwo();
+
 
         // pageSlider
         function pageSlider() {
@@ -92,7 +172,8 @@ jQuery(function ($) {
         }
         pageSlider();
 
-        // Shuffle js filter
+
+        // Shuffle js filter and masonry
         function projectShuffle() {
             if ($('.shuffle-wrapper').length !== 0) {
                 var Shuffle = window.Shuffle;
@@ -115,6 +196,58 @@ jQuery(function ($) {
         }
         projectShuffle();
 
+
+        // testimonial carousel
+        function testimonialCarousel() {
+            $('.testimonial-slide').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                speed: 600,
+                arrows: false
+            });
+        }
+        testimonialCarousel();
+
+
+        // team carousel
+        function teamCarousel() {
+            $('.team-slide').slick({
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                arrows: true,
+                prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>',
+                responsive: [{
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 481,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        }
+        teamCarousel();
+
+
         // media popup
         function mediaPopup() {
             $('.gallery-popup').colorbox({
@@ -122,23 +255,20 @@ jQuery(function ($) {
                 transition: 'slideshow',
                 innerHeight: '500'
             });
+            $('.popup').colorbox({
+                iframe: true,
+                innerWidth: 600,
+                innerHeight: 400
+            });
         }
         mediaPopup();
-    });
-});
-
-/* =======================================================
-   BROWSER BACK/FORWARD CACHE FIX
-   Add to the bottom of js/script.js
-   ======================================================= */
-   $(window).on("pageshow", function(event) {
-    // If the page was pulled from the "back-forward cache" (bfcache)
-    if (event.originalEvent.persisted) {
-        // Force the Slick Slider to re-calculate its position
-        $('.banner-carousel').slick('setPosition');
-        $('.page-slider').slick('setPosition');
         
-        // Optional: Force a full reload if sliders are still breaking
-        // window.location.reload(); 
-    }
+        // Force Slider Refresh on Mobile Back Button
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                $('.banner-carousel').slick('setPosition');
+            }
+        };
+
+    });
 });
